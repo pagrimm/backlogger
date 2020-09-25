@@ -1,0 +1,109 @@
+http://openlibrary.org/api/books?bibkeys=ISBN:0140177396&jscmd=details&format=json
+
+{
+    "ISBN:0140177396": {
+        "info_url": "http://openlibrary.org/books/OL9304093M/Of_Mice_and_Men",
+        "bib_key": "ISBN:0140177396",
+        "preview_url": "https://archive.org/details/ofmicemenpenguin00john",
+        "thumbnail_url": "https://covers.openlibrary.org/b/id/8465315-S.jpg",
+        "details": {
+            "number_of_pages": 107,
+            "weight": "1.6 ounces",
+            "covers": [
+                8465315,
+                8124513,
+                8124512,
+                96846
+            ],
+            "latest_revision": 14,
+            "ocaid": "ofmicemenpenguin00john",
+            "first_sentence": {
+                "type": "/type/text",
+                "value": "A few miles south of Soledad, the Salinas River drops in close to the hillside bank and runs deep and green."
+            },
+            "contributors": [
+                {
+                    "role": "Cover Design",
+                    "name": "Michael Ian Kaye"
+                },
+                {
+                    "role": "Cover Art and Illustrations",
+                    "name": "Ross MacDonald"
+                }
+            ],
+            "source_records": [
+                "amazon:0140177396:o-9:3241103733:266484",
+                "amazon:0140177396:10:2813505103:268575"
+            ],
+            "title": "Of Mice and Men",
+            "languages": [
+                {
+                    "key": "/languages/eng"
+                }
+            ],
+            "subjects": [
+                "Literature: Classics",
+                "Fiction",
+                "Literature - Classics / Criticism",
+                "Classics",
+                "Fiction / Literary"
+            ],
+            "oclc_numbers": [
+                "1003109997"
+            ],
+            "type": {
+                "key": "/type/edition"
+            },
+            "physical_dimensions": "6.7 x 4 x 0.4 inches",
+            "revision": 14,
+            "publishers": [
+                "Penguin Books"
+            ],
+            "description": "They are an unlikely pair: George is “small and quick and dark of face”; Lennie, a man of tremendous size, has the mind of a young child. Yet they have formed a “family,” clinging together in the face of loneliness and alienation.\r\n\r\nLaborers in California’s dusty vegetable fields, they hustle work when they can, living a hand-to-mouth existence. For George and Lennie have a plan: to own an acre of land and a shack they can call their own. When they land jobs on a ranch in the Salinas Valley, the fulfillment of their dream seems to be within their grasp. But even George cannot guard Lennie from the provocations of a flirtatious woman, nor predict the consequences of Lennie’s unswerving obedience to the things George taught him.\r\n\r\n--back cover",
+            "physical_format": "Paperback",
+            "last_modified": {
+                "type": "/type/datetime",
+                "value": "2019-03-26T14:24:09.136315"
+            },
+            "key": "/books/OL9304093M",
+            "authors": [
+                {
+                    "name": "John Steinbeck",
+                    "key": "/authors/OL25788A"
+                }
+            ],
+            "publish_places": [
+                "New York, USA"
+            ],
+            "pagination": "107 p.",
+            "classifications": {},
+            "created": {
+                "type": "/type/datetime",
+                "value": "2008-04-30T09:38:13.731961"
+            },
+            "notes": "US / CAN Edition",
+            "identifiers": {
+                "librarything": [
+                    "3657"
+                ],
+                "goodreads": [
+                    "40698"
+                ]
+            },
+            "isbn_13": [
+                "9780140177398"
+            ],
+            "isbn_10": [
+                "0140177396"
+            ],
+            "publish_date": "1993",
+            "copyright_date": "1937, 1965",
+            "works": [
+                {
+                    "key": "/works/OL23204W"
+                }
+            ]
+        },
+        "preview": "borrow"
+    }
+}
