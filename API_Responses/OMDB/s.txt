@@ -1,0 +1,78 @@
+http://www.omdbapi.com/?s=lost&type=series
+
+{
+    "Search": [
+        {
+            "Title": "Lost",
+            "Year": "2004–2010",
+            "imdbID": "tt0411008",
+            "Type": "series",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BNzhlY2E5NDUtYjJjYy00ODg3LWFkZWQtYTVmMzU4ZWZmOWJkXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg"
+        },
+        {
+            "Title": "Lost in Space",
+            "Year": "2018–",
+            "imdbID": "tt5232792",
+            "Type": "series",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BYzZkOTY4MDgtODI5Mi00ZjA4LWJkODgtYzBiOGE3MWNhZWFmXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg"
+        },
+        {
+            "Title": "The Lost Room",
+            "Year": "2006",
+            "imdbID": "tt0830361",
+            "Type": "series",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BOTIzODYzNzMtZTE1ZS00MWRkLThhMTUtYzU4N2M0MDExZTI0XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg"
+        },
+        {
+            "Title": "Lost Girl",
+            "Year": "2010–2016",
+            "imdbID": "tt1429449",
+            "Type": "series",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BMTY4NzA1MDAyMF5BMl5BanBnXkFtZTcwMzQ4MTkxNA@@._V1_SX300.jpg"
+        },
+        {
+            "Title": "Lost in Austen",
+            "Year": "2008",
+            "imdbID": "tt1117666",
+            "Type": "series",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BMTg2NTAzMDY2OF5BMl5BanBnXkFtZTcwMTM1ODc4Mw@@._V1_SX300.jpg"
+        },
+        {
+            "Title": "Lost in Space",
+            "Year": "1965–1968",
+            "imdbID": "tt0058824",
+            "Type": "series",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BMjE2OTczMDI2M15BMl5BanBnXkFtZTcwMTA5MDgyMQ@@._V1_SX300.jpg"
+        },
+        {
+            "Title": "The Lost World",
+            "Year": "1999–2002",
+            "imdbID": "tt0240278",
+            "Type": "series",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BNDg3ZjFiY2EtODEwZS00MzE2LWE1M2ItZmUyZGM3ZjZlOTA2XkEyXkFqcGdeQXVyMTk5MjAyMjM@._V1_SX300.jpg"
+        },
+        {
+            "Title": "The Lost Honour of Christopher Jefferies",
+            "Year": "2014",
+            "imdbID": "tt3429354",
+            "Type": "series",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BZTdkOTYzYTEtNTRmZC00OWNjLWFjY2YtYTBkYWQzZjE0YmE4XkEyXkFqcGdeQXVyMjUyNzQzMDQ@._V1_SX300.jpg"
+        },
+        {
+            "Title": "Land of the Lost",
+            "Year": "1974–1977",
+            "imdbID": "tt0071005",
+            "Type": "series",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BMjA3NDUyMDA1OV5BMl5BanBnXkFtZTcwNzM3NDI0Mg@@._V1_SX300.jpg"
+        },
+        {
+            "Title": "Power Rangers Lost Galaxy",
+            "Year": "1999–2000",
+            "imdbID": "tt0175059",
+            "Type": "series",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BMjA0NTE0MTU2Nl5BMl5BanBnXkFtZTcwMzk3NzAzMQ@@._V1_SX300.jpg"
+        }
+    ],
+    "totalResults": "279",
+    "Response": "True"
+}
