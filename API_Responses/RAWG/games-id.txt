@@ -1,0 +1,514 @@
+https://api.rawg.io/api/games/5679
+
+{
+    "id": 5679,
+    "slug": "the-elder-scrolls-v-skyrim",
+    "name": "The Elder Scrolls V: Skyrim",
+    "name_original": "The Elder Scrolls V: Skyrim",
+    "description": "<p>The fifth game in the series, Skyrim takes us on a journey through the coldest region of Cyrodiil. Once again player can traverse the open world RPG armed with various medieval weapons and magic, to become a hero of Nordic legends –Dovahkiin, the Dragonborn. After mandatory character creation players will have to escape not only imprisonment but a fire-breathing dragon. Something Skyrim hasn’t seen in centuries.<br />\nAfter Oblivion, the magic system was reworked, in order to show players more aggressive and direct combat. As a Dragonborn, your character will be able to use the powerful magic of dragon shouts, powered, upgraded and researched with the souls of the dragons that will be randomly encountered by players, while traveling. Hundreds of sidequests will invite players to discover every part of the newly introduced land. Aside from already filled with guilds, Daedra and steampunk Dwemer ruins, Skyrim has additional DLC content that not only brings Solstheim island and vampire conclave but gives players the ability to build their own homes, instead of buying pre-made ones.</p>",
+    "metacritic": 94,
+    "metacritic_platforms": [
+        {
+            "metascore": 96,
+            "url": "https://www.metacritic.com/game/xbox-360/the-elder-scrolls-v-skyrim",
+            "platform": {
+                "platform": 14,
+                "name": "Xbox 360",
+                "slug": "xbox360"
+            }
+        },
+        {
+            "metascore": 92,
+            "url": "https://www.metacritic.com/game/playstation-3/the-elder-scrolls-v-skyrim",
+            "platform": {
+                "platform": 16,
+                "name": "PlayStation 3",
+                "slug": "playstation3"
+            }
+        },
+        {
+            "metascore": 94,
+            "url": "https://www.metacritic.com/game/pc/the-elder-scrolls-v-skyrim",
+            "platform": {
+                "platform": 4,
+                "name": "PC",
+                "slug": "pc"
+            }
+        }
+    ],
+    "released": "2011-11-11",
+    "tba": false,
+    "updated": "2020-07-06T04:26:04",
+    "background_image": "https://media.rawg.io/media/games/7cf/7cfc9220b401b7a300e409e539c9afd5.jpg",
+    "background_image_additional": "https://media.rawg.io/media/screenshots/8f4/8f49192e182666832bb331492ca4b1cb.jpg",
+    "website": "http://elderscrolls.com/",
+    "rating": 4.42,
+    "rating_top": 5,
+    "ratings": [
+        {
+            "id": 5,
+            "title": "exceptional",
+            "count": 1628,
+            "percent": 56.51
+        },
+        {
+            "id": 4,
+            "title": "recommended",
+            "count": 941,
+            "percent": 32.66
+        },
+        {
+            "id": 3,
+            "title": "meh",
+            "count": 255,
+            "percent": 8.85
+        },
+        {
+            "id": 1,
+            "title": "skip",
+            "count": 57,
+            "percent": 1.98
+        }
+    ],
+    "reactions": {
+        "1": 9,
+        "2": 7,
+        "3": 18,
+        "4": 13,
+        "5": 2,
+        "6": 2,
+        "7": 6,
+        "9": 1,
+        "11": 14,
+        "12": 12,
+        "13": 1,
+        "17": 1,
+        "18": 1
+    },
+    "added": 10130,
+    "added_by_status": {
+        "yet": 287,
+        "owned": 6432,
+        "beaten": 2176,
+        "toplay": 230,
+        "dropped": 739,
+        "playing": 266
+    },
+    "playtime": 44,
+    "screenshots_count": 23,
+    "movies_count": 0,
+    "creators_count": 9,
+    "achievements_count": 302,
+    "parent_achievements_count": 76,
+    "reddit_url": "https://www.reddit.com/r/skyrim/",
+    "reddit_name": "The Elder Scrolls V: Skyrim",
+    "reddit_description": "A subreddit dedicated to the Elder Scrolls V: Skyrim.",
+    "reddit_logo": "",
+    "reddit_count": 2350,
+    "twitch_count": 102,
+    "youtube_count": 1000000,
+    "reviews_text_count": 20,
+    "ratings_count": 2861,
+    "suggestions_count": 622,
+    "alternative_names": [],
+    "metacritic_url": "https://www.metacritic.com/game/pc/the-elder-scrolls-v-skyrim",
+    "parents_count": 1,
+    "additions_count": 6,
+    "game_series_count": 10,
+    "user_game": null,
+    "reviews_count": 2881,
+    "saturated_color": "0f0f0f",
+    "dominant_color": "0f0f0f",
+    "parent_platforms": [
+        {
+            "platform": {
+                "id": 1,
+                "name": "PC",
+                "slug": "pc"
+            }
+        },
+        {
+            "platform": {
+                "id": 2,
+                "name": "PlayStation",
+                "slug": "playstation"
+            }
+        },
+        {
+            "platform": {
+                "id": 3,
+                "name": "Xbox",
+                "slug": "xbox"
+            }
+        },
+        {
+            "platform": {
+                "id": 7,
+                "name": "Nintendo",
+                "slug": "nintendo"
+            }
+        }
+    ],
+    "platforms": [
+        {
+            "platform": {
+                "id": 4,
+                "name": "PC",
+                "slug": "pc",
+                "image": null,
+                "year_end": null,
+                "year_start": null,
+                "games_count": 258890,
+                "image_background": "https://media.rawg.io/media/games/d82/d82990b9c67ba0d2d09d4e6fa88885a7.jpg"
+            },
+            "released_at": "2011-11-11",
+            "requirements": {
+                "minimum": "<strong>Minimum:</strong><br>\t\t\t\t\t\t\t\t<ul class=\"bb_ul\"><li><strong>OS:</strong> Windows 7/Vista/XP PC (32 or 64 bit)<br>\t\t\t\t\t\t\t\t</li><li><strong>Processor:</strong> Dual Core 2.0GHz or equivalent processor<br>\t\t\t\t\t\t\t\t</li><li><strong>Memory:</strong> 2GB System RAM<br>\t\t\t\t\t\t\t\t</li><li><strong>Hard Disk Space:</strong> 6GB free HDD Space<br>\t\t\t\t\t\t\t\t</li><li><strong>Video Card:</strong> Direct X 9.0c compliant video card with 512 MB of RAM<br>\t\t\t\t\t\t\t\t</li><li><strong>Sound:</strong> DirectX compatible sound card<br>\t\t\t\t\t\t\t\t</li></ul>",
+                "recommended": "<strong>Recommended:</strong><br>\t\t\t\t\t\t\t\t<ul class=\"bb_ul\"><li><strong>Processor:</strong> Quad-core Intel or AMD CPU<br>\t\t\t\t\t\t\t\t</li><li><strong>Memory:</strong> 4GB System RAM<br>\t\t\t\t\t\t\t\t</li><li><strong>Video Card:</strong> DirectX 9.0c compatible NVIDIA or AMD ATI video card with 1GB of RAM (Nvidia GeForce GTX 260 or higher; ATI Radeon 4890 or higher)<br>\t\t\t\t\t\t\t\t</li></ul>"
+            }
+        },
+        {
+            "platform": {
+                "id": 16,
+                "name": "PlayStation 3",
+                "slug": "playstation3",
+                "image": null,
+                "year_end": null,
+                "year_start": null,
+                "games_count": 3604,
+                "image_background": "https://media.rawg.io/media/games/588/588c6bdff3d4baf66ec36b1c05b793bf.jpg"
+            },
+            "released_at": "2011-11-11",
+            "requirements": null
+        },
+        {
+            "platform": {
+                "id": 14,
+                "name": "Xbox 360",
+                "slug": "xbox360",
+                "image": null,
+                "year_end": null,
+                "year_start": null,
+                "games_count": 2550,
+                "image_background": "https://media.rawg.io/media/games/736/73619bd336c894d6941d926bfd563946.jpg"
+            },
+            "released_at": "2011-11-11",
+            "requirements": null
+        },
+        {
+            "platform": {
+                "id": 7,
+                "name": "Nintendo Switch",
+                "slug": "nintendo-switch",
+                "image": null,
+                "year_end": null,
+                "year_start": null,
+                "games_count": 3392,
+                "image_background": "https://media.rawg.io/media/games/b6b/b6b20bfc4b34e312dbc8aac53c95a348.jpg"
+            },
+            "released_at": "2011-11-11",
+            "requirements": null
+        }
+    ],
+    "stores": [
+        {
+            "id": 49792,
+            "url": "https://marketplace.xbox.com/en-us/product/skyrim/66acd000-77fe-1000-9115-d802425307e6",
+            "store": {
+                "id": 7,
+                "name": "Xbox 360 Store",
+                "slug": "xbox360",
+                "domain": "marketplace.xbox.com",
+                "games_count": 1765,
+                "image_background": "https://media.rawg.io/media/games/562/562553814dd54e001a541e4ee83a591c.jpg"
+            }
+        },
+        {
+            "id": 32919,
+            "url": "https://www.nintendo.com/games/detail/the-elder-scrolls-v-skyrim-switch",
+            "store": {
+                "id": 6,
+                "name": "Nintendo Store",
+                "slug": "nintendo",
+                "domain": "nintendo.com",
+                "games_count": 7793,
+                "image_background": "https://media.rawg.io/media/games/e04/e04963f3ac4c4fa83a1dc0b9231e50db.jpg"
+            }
+        },
+        {
+            "id": 15144,
+            "url": "http://store.steampowered.com/app/72850/",
+            "store": {
+                "id": 1,
+                "name": "Steam",
+                "slug": "steam",
+                "domain": "store.steampowered.com",
+                "games_count": 45151,
+                "image_background": "https://media.rawg.io/media/games/7cf/7cfc9220b401b7a300e409e539c9afd5.jpg"
+            }
+        },
+        {
+            "id": 6037,
+            "url": "https://store.playstation.com/en-us/product/UP1003-BLUS30778_00-TESVSKYRIM000000",
+            "store": {
+                "id": 3,
+                "name": "PlayStation Store",
+                "slug": "playstation-store",
+                "domain": "store.playstation.com",
+                "games_count": 6762,
+                "image_background": "https://media.rawg.io/media/games/929/9295e55ce69cf5337c567983cf8b4137.jpeg"
+            }
+        }
+    ],
+    "developers": [
+        {
+            "id": 4207,
+            "name": "Bethesda Game Studios",
+            "slug": "bethesda-game-studios",
+            "games_count": 32,
+            "image_background": "https://media.rawg.io/media/games/886/8868f9ea0c91d45316319ebf5dd4fc64.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Bethesda Softworks",
+            "slug": "bethesda-softworks",
+            "games_count": 65,
+            "image_background": "https://media.rawg.io/media/games/742/74276457ebb9466e11d75a2be7722265.jpg"
+        }
+    ],
+    "genres": [
+        {
+            "id": 4,
+            "name": "Action",
+            "slug": "action",
+            "games_count": 97271,
+            "image_background": "https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg"
+        },
+        {
+            "id": 5,
+            "name": "RPG",
+            "slug": "role-playing-games-rpg",
+            "games_count": 30756,
+            "image_background": "https://media.rawg.io/media/games/5a4/5a44112251d70a25291cc33757220fce.jpg"
+        }
+    ],
+    "tags": [
+        {
+            "id": 97,
+            "name": "Action RPG",
+            "slug": "action-rpg",
+            "language": "eng",
+            "games_count": 2701,
+            "image_background": "https://media.rawg.io/media/games/3cf/3cff89996570cf29a10eb9cd967dcf73.jpg"
+        },
+        {
+            "id": 40845,
+            "name": "Partial Controller Support",
+            "slug": "partial-controller-support",
+            "language": "eng",
+            "games_count": 6670,
+            "image_background": "https://media.rawg.io/media/games/4a0/4a0a1316102366260e6f38fd2a9cfdce.jpg"
+        },
+        {
+            "id": 40847,
+            "name": "Steam Achievements",
+            "slug": "steam-achievements",
+            "language": "eng",
+            "games_count": 19595,
+            "image_background": "https://media.rawg.io/media/games/88c/88c5b4d7c80276c03ff62aebb1a99ad4.jpg"
+        },
+        {
+            "id": 40849,
+            "name": "Steam Cloud",
+            "slug": "steam-cloud",
+            "language": "eng",
+            "games_count": 9164,
+            "image_background": "https://media.rawg.io/media/games/91c/91c4f377c1e09755b60a0102c5252843.jpg"
+        },
+        {
+            "id": 13,
+            "name": "Atmospheric",
+            "slug": "atmospheric",
+            "language": "eng",
+            "games_count": 9612,
+            "image_background": "https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg"
+        },
+        {
+            "id": 40852,
+            "name": "Steam Workshop",
+            "slug": "steam-workshop",
+            "language": "eng",
+            "games_count": 1032,
+            "image_background": "https://media.rawg.io/media/games/7f0/7f021d4a3577ac9d591a628a431fc2e5.jpg"
+        },
+        {
+            "id": 121,
+            "name": "Character Customization",
+            "slug": "character-customization",
+            "language": "eng",
+            "games_count": 977,
+            "image_background": "https://media.rawg.io/media/games/21c/21cc15d233117c6809ec86870559e105.jpg"
+        },
+        {
+            "id": 40,
+            "name": "Dark Fantasy",
+            "slug": "dark-fantasy",
+            "language": "eng",
+            "games_count": 1181,
+            "image_background": "https://media.rawg.io/media/games/789/7896837ec22a83e4007018ddd55e8c9a.jpg"
+        },
+        {
+            "id": 215,
+            "name": "Dragons",
+            "slug": "dragons",
+            "language": "eng",
+            "games_count": 1505,
+            "image_background": "https://media.rawg.io/media/screenshots/3f9/3f91ed2b09ad06c8f5b3d1981f53b2e7.jpg"
+        },
+        {
+            "id": 64,
+            "name": "Fantasy",
+            "slug": "fantasy",
+            "language": "eng",
+            "games_count": 9876,
+            "image_background": "https://media.rawg.io/media/games/fc1/fc1307a2774506b5bd65d7e8424664a7.jpg"
+        },
+        {
+            "id": 8,
+            "name": "First-Person",
+            "slug": "first-person",
+            "language": "eng",
+            "games_count": 8788,
+            "image_background": "https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg"
+        },
+        {
+            "id": 42,
+            "name": "Great Soundtrack",
+            "slug": "great-soundtrack",
+            "language": "eng",
+            "games_count": 3078,
+            "image_background": "https://media.rawg.io/media/games/490/49016e06ae2103881ff6373248843069.jpg"
+        },
+        {
+            "id": 205,
+            "name": "Lore-Rich",
+            "slug": "lore-rich",
+            "language": "eng",
+            "games_count": 100,
+            "image_background": "https://media.rawg.io/media/screenshots/997/99739f37c098a1dee511d2501e41204e.jpg"
+        },
+        {
+            "id": 82,
+            "name": "Magic",
+            "slug": "magic",
+            "language": "eng",
+            "games_count": 3710,
+            "image_background": "https://media.rawg.io/media/screenshots/5b4/5b4344caf224ac6e6a5bf9eb2c7cbc4b.jpg"
+        },
+        {
+            "id": 66,
+            "name": "Medieval",
+            "slug": "medieval",
+            "language": "eng",
+            "games_count": 2100,
+            "image_background": "https://media.rawg.io/media/games/c22/c22d804ac753c72f2617b3708a625dec.jpg"
+        },
+        {
+            "id": 62,
+            "name": "Moddable",
+            "slug": "moddable",
+            "language": "eng",
+            "games_count": 459,
+            "image_background": "https://media.rawg.io/media/games/7cf/7cfc9220b401b7a300e409e539c9afd5.jpg"
+        },
+        {
+            "id": 36,
+            "name": "Open World",
+            "slug": "open-world",
+            "language": "eng",
+            "games_count": 2944,
+            "image_background": "https://media.rawg.io/media/games/490/49016e06ae2103881ff6373248843069.jpg"
+        },
+        {
+            "id": 24,
+            "name": "RPG",
+            "slug": "rpg",
+            "language": "eng",
+            "games_count": 10284,
+            "image_background": "https://media.rawg.io/media/games/d82/d82990b9c67ba0d2d09d4e6fa88885a7.jpg"
+        },
+        {
+            "id": 37,
+            "name": "Sandbox",
+            "slug": "sandbox",
+            "language": "eng",
+            "games_count": 2790,
+            "image_background": "https://media.rawg.io/media/games/310/3106b0e012271c5ffb16497b070be739.jpg"
+        },
+        {
+            "id": 31,
+            "name": "Singleplayer",
+            "slug": "singleplayer",
+            "language": "eng",
+            "games_count": 87039,
+            "image_background": "https://media.rawg.io/media/games/120/1201a40e4364557b124392ee50317b99.jpg"
+        },
+        {
+            "id": 118,
+            "name": "Story Rich",
+            "slug": "story-rich",
+            "language": "eng",
+            "games_count": 7394,
+            "image_background": "https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg"
+        },
+        {
+            "id": 149,
+            "name": "Third Person",
+            "slug": "third-person",
+            "language": "eng",
+            "games_count": 2860,
+            "image_background": "https://media.rawg.io/media/games/6cd/6cd653e0aaef5ff8bbd295bf4bcb12eb.jpg"
+        },
+        {
+            "id": 468,
+            "name": "role-playing",
+            "slug": "role-playing",
+            "language": "eng",
+            "games_count": 1068,
+            "image_background": "https://media.rawg.io/media/screenshots/244/244734c34364554c64d9cd059cc90c73.jpg"
+        },
+        {
+            "id": 7808,
+            "name": "steam-trading-cards",
+            "slug": "steam-trading-cards",
+            "language": "eng",
+            "games_count": 7606,
+            "image_background": "https://media.rawg.io/media/games/fc1/fc1307a2774506b5bd65d7e8424664a7.jpg"
+        }
+    ],
+    "publishers": [
+        {
+            "id": 339,
+            "name": "Bethesda Softworks",
+            "slug": "bethesda-softworks",
+            "games_count": 153,
+            "image_background": "https://media.rawg.io/media/games/596/596a48ef3b62b63b4cc59633e28be903.jpg"
+        }
+    ],
+    "esrb_rating": {
+        "id": 4,
+        "name": "Mature",
+        "slug": "mature"
+    },
+    "clip": {
+        "clip": "https://media.rawg.io/media/stories-640/706/706aad163bc0ff757ad963890175e000.mp4",
+        "clips": {
+            "320": "https://media.rawg.io/media/stories-320/d9d/d9d7c5751608ec1f8fc64fc130254cfc.mp4",
+            "640": "https://media.rawg.io/media/stories-640/706/706aad163bc0ff757ad963890175e000.mp4",
+            "full": "https://media.rawg.io/media/stories/7de/7de89d64eaf9153286ea1e352aef080d.mp4"
+        },
+        "video": "xmlWVe8LeS8",
+        "preview": "https://media.rawg.io/media/stories-previews/deb/debfa1bae1fca937ee311dad403ef739.jpg"
+    },
+    "description_raw": "The fifth game in the series, Skyrim takes us on a journey through the coldest region of Cyrodiil. Once again player can traverse the open world RPG armed with various medieval weapons and magic, to become a hero of Nordic legends –Dovahkiin, the Dragonborn. After mandatory character creation players will have to escape not only imprisonment but a fire-breathing dragon. Something Skyrim hasn’t seen in centuries.\r\nAfter Oblivion, the magic system was reworked, in order to show players more aggressive and direct combat. As a Dragonborn, your character will be able to use the powerful magic of dragon shouts, powered, upgraded and researched with the souls of the dragons that will be randomly encountered by players, while traveling. Hundreds of sidequests will invite players to discover every part of the newly introduced land. Aside from already filled with guilds, Daedra and steampunk Dwemer ruins, Skyrim has additional DLC content that not only brings Solstheim island and vampire conclave but gives players the ability to build their own homes, instead of buying pre-made ones."
+}
