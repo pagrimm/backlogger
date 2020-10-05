@@ -1,13 +1,10 @@
-namespace QuickType
+using System;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
+namespace Backlogger.ApiModels
 {
-  using System;
-  using System.Collections.Generic;
-
-  using System.Globalization;
-  using Newtonsoft.Json;
-  using Newtonsoft.Json.Converters;
-
-  public partial class Temperatures
+  public partial class TmdbTvRoot
   {
     [JsonProperty("backdrop_path")]
     public string BackdropPath { get; set; }
