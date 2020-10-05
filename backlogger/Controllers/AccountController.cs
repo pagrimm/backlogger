@@ -38,7 +38,7 @@ namespace Backlogger.Controllers
     [HttpPost]
     public async Task<ActionResult> Register(RegisterViewModel model)
     {
-      var user = new ApplicationUser { UserName = model.Email, FirstName = model.FirstName, LastName = model.LastName };
+      var user = new ApplicationUser { UserName = model.UserName };
       IdentityResult result = await _userManager.CreateAsync(user, model.Password);
       if (result.Succeeded)
       {
@@ -79,7 +79,7 @@ namespace Backlogger.Controllers
     public async Task<ActionResult> Edit(string id)
     {
       var user = await _userManager.FindByIdAsync(id);
-      var model = new RegisterViewModel { Email = user.UserName, FirstName = user.FirstName, LastName = user.LastName };
+      var model = new RegisterViewModel { Email = user.Email, UserName = user.UserName };
       return View(model);
     }
 
@@ -89,8 +89,6 @@ namespace Backlogger.Controllers
       var user = await _userManager.FindByIdAsync(id);
       user.UserName = model.UserName;
       user.Email = model.Email;
-      user.FirstName = model.FirstName;
-      user.LastName = model.LastName;
       if (!String.IsNullOrEmpty(model.Password)) {
         await _userManager.RemovePasswordAsync(user);
         await _userManager.AddPasswordAsync(user, model.Password);

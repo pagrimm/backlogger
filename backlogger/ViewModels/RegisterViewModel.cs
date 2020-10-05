@@ -1,11 +1,11 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Backlogger.ViewModels
 {
   public class RegisterViewModel
   {
     [Required]
-    [UserName]
     [Display(Name = "UserName")]
     public string UserName { get; set; }
 
@@ -23,11 +23,5 @@ namespace Backlogger.ViewModels
     [Display(Name = "Confirm Password")]
     [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
     public string ConfirmPassword { get; set; }
-
-    [Display(Name = "First Name")]
-    public string FirstName { get; set; }
-
-    [Display(Name = "Last Name")]
-    public string LastName { get; set; }
   }
 }

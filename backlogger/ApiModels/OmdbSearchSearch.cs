@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace Backlogger.Models
 {
   public class OmdbSearchSearch

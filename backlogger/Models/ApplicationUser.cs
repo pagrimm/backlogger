@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 
-namespace PartySquirrel.Models
+namespace Backlogger.Models
 {
   public class ApplicationUser : IdentityUser
   {

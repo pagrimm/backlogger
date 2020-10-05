@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Backlogger.Models
 {
-  public class OmdbSearchRoot
+  public class OmdbIdRoot
   {
     public string Title { get; set; }
     public string Rated { get; set; }

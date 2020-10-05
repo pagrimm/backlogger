@@ -27,7 +27,7 @@ namespace Backlogger.Models
     public long Metacritic { get; set; }
 
     [JsonProperty("metacritic_platforms")]
-    public MetacriticPlatform[] MetacriticPlatforms { get; set; }
+    public RawgIdMetacriticPlatform[] MetacriticPlatforms { get; set; }
 
     [JsonProperty("released")]
     public DateTimeOffset Released { get; set; }
@@ -54,7 +54,7 @@ namespace Backlogger.Models
     public long RatingTop { get; set; }
 
     [JsonProperty("ratings")]
-    public Rating[] Ratings { get; set; }
+    public RawgIdRating[] Ratings { get; set; }
 
     [JsonProperty("reactions")]
     public Dictionary<string, long> Reactions { get; set; }
@@ -63,7 +63,7 @@ namespace Backlogger.Models
     public long Added { get; set; }
 
     [JsonProperty("added_by_status")]
-    public AddedByStatus AddedByStatus { get; set; }
+    public RawgIdAddedByStatus AddedByStatus { get; set; }
 
     [JsonProperty("playtime")]
     public long Playtime { get; set; }
@@ -141,37 +141,37 @@ namespace Backlogger.Models
     public string DominantColor { get; set; }
 
     [JsonProperty("parent_platforms")]
-    public ParentPlatform[] ParentPlatforms { get; set; }
+    public RawgIdParentPlatform[] ParentPlatforms { get; set; }
 
     [JsonProperty("platforms")]
-    public PlatformElement[] Platforms { get; set; }
+    public RawgIdPlatformElement[] Platforms { get; set; }
 
     [JsonProperty("stores")]
-    public Store[] Stores { get; set; }
+    public RawgIdStore[] Stores { get; set; }
 
     [JsonProperty("developers")]
-    public Developer[] Developers { get; set; }
+    public RawgIdDeveloper[] Developers { get; set; }
 
     [JsonProperty("genres")]
-    public Developer[] Genres { get; set; }
+    public RawgIdDeveloper[] Genres { get; set; }
 
     [JsonProperty("tags")]
-    public Developer[] Tags { get; set; }
+    public RawgIdDeveloper[] Tags { get; set; }
 
     [JsonProperty("publishers")]
-    public Developer[] Publishers { get; set; }
+    public RawgIdDeveloper[] Publishers { get; set; }
 
     [JsonProperty("esrb_rating")]
-    public EsrbRating EsrbRating { get; set; }
+    public RawgIdEsrbRating EsrbRating { get; set; }
 
     [JsonProperty("clip")]
-    public Clip Clip { get; set; }
+    public RawgIdClip Clip { get; set; }
 
     [JsonProperty("description_raw")]
     public string DescriptionRaw { get; set; }
   }
 
-  public partial class AddedByStatus
+  public partial class RawgIdAddedByStatus
   {
     [JsonProperty("yet")]
     public long Yet { get; set; }
@@ -192,13 +192,13 @@ namespace Backlogger.Models
     public long Playing { get; set; }
   }
 
-  public partial class Clip
+  public partial class RawgIdClip
   {
     [JsonProperty("clip")]
     public Uri ClipClip { get; set; }
 
     [JsonProperty("clips")]
-    public Clips Clips { get; set; }
+    public RawgIdClips Clips { get; set; }
 
     [JsonProperty("video")]
     public string Video { get; set; }
@@ -207,7 +207,7 @@ namespace Backlogger.Models
     public Uri Preview { get; set; }
   }
 
-  public partial class Clips
+  public partial class RawgIdClips
   {
     [JsonProperty("320")]
     public Uri The320 { get; set; }
@@ -219,7 +219,7 @@ namespace Backlogger.Models
     public Uri Full { get; set; }
   }
 
-  public partial class Developer
+  public partial class RawgIdDeveloper
   {
     [JsonProperty("id")]
     public long Id { get; set; }
@@ -238,12 +238,9 @@ namespace Backlogger.Models
 
     [JsonProperty("domain", NullValueHandling = NullValueHandling.Ignore)]
     public string Domain { get; set; }
-
-    [JsonProperty("language", NullValueHandling = NullValueHandling.Ignore)]
-    public Language? Language { get; set; }
   }
 
-  public partial class EsrbRating
+  public partial class RawgIdEsrbRating
   {
     [JsonProperty("id")]
     public long Id { get; set; }
@@ -255,7 +252,7 @@ namespace Backlogger.Models
     public string Slug { get; set; }
   }
 
-  public partial class MetacriticPlatform
+  public partial class RawgIdMetacriticPlatform
   {
     [JsonProperty("metascore")]
     public long Metascore { get; set; }
@@ -264,10 +261,10 @@ namespace Backlogger.Models
     public Uri Url { get; set; }
 
     [JsonProperty("platform")]
-    public MetacriticPlatformPlatform Platform { get; set; }
+    public RawgIdMetacriticPlatformPlatform Platform { get; set; }
   }
 
-  public partial class MetacriticPlatformPlatform
+  public partial class RawgIdMetacriticPlatformPlatform
   {
     [JsonProperty("platform")]
     public long Platform { get; set; }
@@ -279,25 +276,25 @@ namespace Backlogger.Models
     public string Slug { get; set; }
   }
 
-  public partial class ParentPlatform
+  public partial class RawgIdParentPlatform
   {
     [JsonProperty("platform")]
-    public EsrbRating Platform { get; set; }
+    public RawgIdEsrbRating Platform { get; set; }
   }
 
-  public partial class PlatformElement
+  public partial class RawgIdPlatformElement
   {
     [JsonProperty("platform")]
-    public PlatformPlatform Platform { get; set; }
+    public RawgIdPlatformPlatform Platform { get; set; }
 
     [JsonProperty("released_at")]
     public DateTimeOffset ReleasedAt { get; set; }
 
     [JsonProperty("requirements")]
-    public Requirements Requirements { get; set; }
+    public RawgIdRequirements Requirements { get; set; }
   }
 
-  public partial class PlatformPlatform
+  public partial class RawgIdPlatformPlatform
   {
     [JsonProperty("id")]
     public long Id { get; set; }
@@ -324,7 +321,7 @@ namespace Backlogger.Models
     public Uri ImageBackground { get; set; }
   }
 
-  public partial class Requirements
+  public partial class RawgIdRequirements
   {
     [JsonProperty("minimum")]
     public string Minimum { get; set; }
@@ -333,7 +330,7 @@ namespace Backlogger.Models
     public string Recommended { get; set; }
   }
 
-  public partial class Rating
+  public partial class RawgIdRating
   {
     [JsonProperty("id")]
     public long Id { get; set; }
@@ -348,7 +345,7 @@ namespace Backlogger.Models
     public double Percent { get; set; }
   }
 
-  public partial class Store
+  public partial class RawgIdStore
   {
     [JsonProperty("id")]
     public long Id { get; set; }
@@ -357,6 +354,6 @@ namespace Backlogger.Models
     public Uri Url { get; set; }
 
     [JsonProperty("store")]
-    public Developer StoreStore { get; set; }
+    public RawgIdDeveloper StoreStore { get; set; }
   }
 }
