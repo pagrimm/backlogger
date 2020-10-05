@@ -1,5 +1,9 @@
 https://api.rawg.io/api/games?search=ultima
 
+options
+?page=1
+?page_size=10
+
 {
     "count": 1445,
     "next": "https://api.rawg.io/api/games?page=2&search=ultima",
