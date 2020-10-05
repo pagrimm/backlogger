@@ -4,7 +4,7 @@ using System.Globalization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Backlogger.Models
+namespace Backlogger.ApiModels
 {
   public partial class RawgIdRoot
   {
@@ -27,7 +27,7 @@ namespace Backlogger.Models
     public long Metacritic { get; set; }
 
     [JsonProperty("metacritic_platforms")]
-    public RawgIdMetacriticPlatform[] MetacriticPlatforms { get; set; }
+    public List<RawgIdMetacriticPlatform> MetacriticPlatforms { get; set; }
 
     [JsonProperty("released")]
     public DateTimeOffset Released { get; set; }
@@ -39,13 +39,13 @@ namespace Backlogger.Models
     public DateTimeOffset Updated { get; set; }
 
     [JsonProperty("background_image")]
-    public Uri BackgroundImage { get; set; }
+    public string BackgroundImage { get; set; }
 
     [JsonProperty("background_image_additional")]
-    public Uri BackgroundImageAdditional { get; set; }
+    public string BackgroundImageAdditional { get; set; }
 
     [JsonProperty("website")]
-    public Uri Website { get; set; }
+    public string Website { get; set; }
 
     [JsonProperty("rating")]
     public double Rating { get; set; }
@@ -54,7 +54,7 @@ namespace Backlogger.Models
     public long RatingTop { get; set; }
 
     [JsonProperty("ratings")]
-    public RawgIdRating[] Ratings { get; set; }
+    public List<RawgIdRating> Ratings { get; set; }
 
     [JsonProperty("reactions")]
     public Dictionary<string, long> Reactions { get; set; }
@@ -84,7 +84,7 @@ namespace Backlogger.Models
     public long ParentAchievementsCount { get; set; }
 
     [JsonProperty("reddit_url")]
-    public Uri RedditUrl { get; set; }
+    public string RedditUrl { get; set; }
 
     [JsonProperty("reddit_name")]
     public string RedditName { get; set; }
@@ -114,10 +114,10 @@ namespace Backlogger.Models
     public long SuggestionsCount { get; set; }
 
     [JsonProperty("alternative_names")]
-    public object[] AlternativeNames { get; set; }
+    public List<object> AlternativeNames { get; set; }
 
     [JsonProperty("metacritic_url")]
-    public Uri MetacriticUrl { get; set; }
+    public string MetacriticUrl { get; set; }
 
     [JsonProperty("parents_count")]
     public long ParentsCount { get; set; }
@@ -141,25 +141,25 @@ namespace Backlogger.Models
     public string DominantColor { get; set; }
 
     [JsonProperty("parent_platforms")]
-    public RawgIdParentPlatform[] ParentPlatforms { get; set; }
+    public List<RawgIdParentPlatform> ParentPlatforms { get; set; }
 
     [JsonProperty("platforms")]
-    public RawgIdPlatformElement[] Platforms { get; set; }
+    public List<RawgIdPlatformElement> Platforms { get; set; }
 
     [JsonProperty("stores")]
-    public RawgIdStore[] Stores { get; set; }
+    public List<RawgIdStore> Stores { get; set; }
 
     [JsonProperty("developers")]
-    public RawgIdDeveloper[] Developers { get; set; }
+    public List<RawgIdDeveloper> Developers { get; set; }
 
     [JsonProperty("genres")]
-    public RawgIdDeveloper[] Genres { get; set; }
+    public List<RawgIdDeveloper> Genres { get; set; }
 
     [JsonProperty("tags")]
-    public RawgIdDeveloper[] Tags { get; set; }
+    public List<RawgIdDeveloper> Tags { get; set; }
 
     [JsonProperty("publishers")]
-    public RawgIdDeveloper[] Publishers { get; set; }
+    public List<RawgIdDeveloper> Publishers { get; set; }
 
     [JsonProperty("esrb_rating")]
     public RawgIdEsrbRating EsrbRating { get; set; }
@@ -195,7 +195,7 @@ namespace Backlogger.Models
   public partial class RawgIdClip
   {
     [JsonProperty("clip")]
-    public Uri ClipClip { get; set; }
+    public string ClipClip { get; set; }
 
     [JsonProperty("clips")]
     public RawgIdClips Clips { get; set; }
@@ -204,19 +204,19 @@ namespace Backlogger.Models
     public string Video { get; set; }
 
     [JsonProperty("preview")]
-    public Uri Preview { get; set; }
+    public string Preview { get; set; }
   }
 
   public partial class RawgIdClips
   {
     [JsonProperty("320")]
-    public Uri The320 { get; set; }
+    public string The320 { get; set; }
 
     [JsonProperty("640")]
-    public Uri The640 { get; set; }
+    public string The640 { get; set; }
 
     [JsonProperty("full")]
-    public Uri Full { get; set; }
+    public string Full { get; set; }
   }
 
   public partial class RawgIdDeveloper
@@ -234,7 +234,7 @@ namespace Backlogger.Models
     public long GamesCount { get; set; }
 
     [JsonProperty("image_background")]
-    public Uri ImageBackground { get; set; }
+    public string ImageBackground { get; set; }
 
     [JsonProperty("domain", NullValueHandling = NullValueHandling.Ignore)]
     public string Domain { get; set; }
@@ -258,7 +258,7 @@ namespace Backlogger.Models
     public long Metascore { get; set; }
 
     [JsonProperty("url")]
-    public Uri Url { get; set; }
+    public string Url { get; set; }
 
     [JsonProperty("platform")]
     public RawgIdMetacriticPlatformPlatform Platform { get; set; }
@@ -318,7 +318,7 @@ namespace Backlogger.Models
     public long GamesCount { get; set; }
 
     [JsonProperty("image_background")]
-    public Uri ImageBackground { get; set; }
+    public string ImageBackground { get; set; }
   }
 
   public partial class RawgIdRequirements
@@ -351,7 +351,7 @@ namespace Backlogger.Models
     public long Id { get; set; }
 
     [JsonProperty("url")]
-    public Uri Url { get; set; }
+    public string Url { get; set; }
 
     [JsonProperty("store")]
     public RawgIdDeveloper StoreStore { get; set; }
