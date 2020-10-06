@@ -52,7 +52,7 @@ namespace Backlogger.ApiModels
     public List<TmdbMovieProductionCountry> ProductionCountries { get; set; }
 
     [JsonProperty("release_date")]
-    public DateTimeOffset ReleaseDate { get; set; }
+    public string ReleaseDate { get; set; }
 
     [JsonProperty("revenue")]
     public long Revenue { get; set; }

@@ -16,7 +16,7 @@ namespace Backlogger.ApiModels
     public List<long> EpisodeRunTime { get; set; }
 
     [JsonProperty("first_air_date")]
-    public DateTimeOffset FirstAirDate { get; set; }
+    public string FirstAirDate { get; set; }
 
     [JsonProperty("genres")]
     public List<Genre> Genres { get; set; }

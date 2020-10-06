@@ -30,7 +30,7 @@ namespace Backlogger.ApiModels
     public List<RawgIdMetacriticPlatform> MetacriticPlatforms { get; set; }
 
     [JsonProperty("released")]
-    public DateTimeOffset Released { get; set; }
+    public string Released { get; set; }
 
     [JsonProperty("tba")]
     public bool Tba { get; set; }
