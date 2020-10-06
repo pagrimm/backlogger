@@ -1,9 +1,12 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Backlogger.Models;
+
 
 namespace Backlogger.ApiModels
 {
-  public partial class OmdbSearch
+  public partial class OmdbSearchRoot
   {
     [JsonProperty("Search")]
     public List<OmdbSearchSearch> Search { get; set; }

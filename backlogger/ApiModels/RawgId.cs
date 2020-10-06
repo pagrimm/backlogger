@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Backlogger.Models;
 
 namespace Backlogger.ApiModels
 {
@@ -167,6 +169,15 @@ namespace Backlogger.ApiModels
 
     [JsonProperty("description_raw")]
     public string DescriptionRaw { get; set; }
+
+    public static RawgIdRoot GetMovieById(int id)
+    {
+      var apiCallTask = ApiHelper.RawgIdApiCall(id);
+      var result = apiCallTask.Result;
+      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+      RawgIdRoot root = JsonConvert.DeserializeObject<RawgIdRoot>(jsonResponse.ToString());
+      return root;
+    }
   }
 
   public partial class RawgIdAddedByStatus

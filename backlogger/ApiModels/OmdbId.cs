@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Backlogger.Models;
 
 namespace Backlogger.ApiModels
 {
-  public partial class OmdbId
+  public partial class OmdbIdRoot
   {
     [JsonProperty("Title")]
     public string Title { get; set; }
@@ -79,6 +81,7 @@ namespace Backlogger.ApiModels
 
     [JsonProperty("Response")]
     public string Response { get; set; }
+
   }
 
   public partial class OmdbIdRating
