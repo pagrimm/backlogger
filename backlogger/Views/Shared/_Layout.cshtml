@@ -19,9 +19,23 @@
 
 <body>
   @Html.Partial("Navbar")
-  <div class="main-window">
-    @RenderBody()
+  <div class="page-container">
+    <div class="sidebar">
+      <div class="sidebar-item">
+        Games
+      </div>
+      <div class="sidebar-item">
+        Movies
+      </div>
+      <div class="sidebar-item">
+        TV Shows
+      </div>
+    </div>
+    <div class="main-window">
+      @RenderBody()
+    </div>
   </div>
+  
 
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
