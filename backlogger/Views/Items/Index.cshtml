@@ -5,8 +5,17 @@
 @{
   Layout = "_Layout";
 }
-
-@if (Model.TvSearch != null)
+@if(Model.Pages > 1)
+{
+  <div class="pagination-container">
+  @for(int i = 0; i < Model.Pages; i++)
+  {
+    <a class="pagination-link" href="#">@i</a>
+  }
+  </div>
+}
+<div>Total Search Results: @Model.Results</div>
+@if(Model.TvSearch != null)
 {
   foreach(TmdbTvSearchResult result in Model.TvSearch.Results)
   {
@@ -17,9 +26,7 @@
 {
   foreach(RawgSearchResult result in Model.GamesSearch.Results)
   {
-    <p>@result.Name</p>
-    <p>@result.Released</p>
-    <hr />
+    @Html.Partial("GameSearchCard", result);
   }
 }
 @if (Model.MovieSearch != null)

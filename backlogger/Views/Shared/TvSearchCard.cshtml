@@ -5,7 +5,7 @@
 @{string TransParentBg = "";}
 @if (Model.BackdropPath != null)
 {
-  BackgroundStyle = "background:url(https://image.tmdb.org/t/p/original/" + @Model.BackdropPath + ");background-size:100% auto; background-position:center";
+  BackgroundStyle = "background:url(https://image.tmdb.org/t/p/original/" + @Model.BackdropPath + "),#303030;background-size:100% auto; background-position:center";
   TransParentBg = "trans-black-bg";
 }
 
@@ -28,7 +28,7 @@
         <p class="card-text">@Model.Overview</p>
       </div>
       <div class="movie-search-column-right ml-3">
-        <button class="btn btn-warning mb-3 movie-card-button">Movie Details</button>
+        <button class="btn btn-warning mb-3 movie-card-button">Show Details</button>
         <button class="btn btn-success movie-card-button">Add to Backlog</button>
       </div>
     </div>

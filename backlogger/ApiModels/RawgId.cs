@@ -24,7 +24,7 @@ namespace Backlogger.ApiModels
     public string Description { get; set; }
 
     [JsonProperty("metacritic")]
-    public long Metacritic { get; set; }
+    public long? Metacritic { get; set; }
 
     [JsonProperty("metacritic_platforms")]
     public List<RawgIdMetacriticPlatform> MetacriticPlatforms { get; set; }
@@ -36,7 +36,7 @@ namespace Backlogger.ApiModels
     public bool Tba { get; set; }
 
     [JsonProperty("updated")]
-    public DateTimeOffset Updated { get; set; }
+    public string Updated { get; set; }
 
     [JsonProperty("background_image")]
     public string BackgroundImage { get; set; }
@@ -297,7 +297,7 @@ namespace Backlogger.ApiModels
     public RawgIdPlatformPlatform Platform { get; set; }
 
     [JsonProperty("released_at")]
-    public DateTimeOffset ReleasedAt { get; set; }
+    public string ReleasedAt { get; set; }
 
     [JsonProperty("requirements")]
     public RawgIdRequirements Requirements { get; set; }

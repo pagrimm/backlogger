@@ -13,7 +13,7 @@ namespace Backlogger.ApiModels
     public long Count { get; set; }
 
     [JsonProperty("next")]
-    public Uri Next { get; set; }
+    public string Next { get; set; }
 
     [JsonProperty("previous")]
     public object Previous { get; set; }
@@ -43,13 +43,13 @@ namespace Backlogger.ApiModels
     public List<RawgSearchStore> Stores { get; set; }
 
     [JsonProperty("released")]
-    public DateTimeOffset? Released { get; set; }
+    public string Released { get; set; }
 
     [JsonProperty("tba")]
     public bool Tba { get; set; }
 
     [JsonProperty("background_image")]
-    public Uri BackgroundImage { get; set; }
+    public string BackgroundImage { get; set; }
 
     [JsonProperty("rating")]
     public double Rating { get; set; }
@@ -133,7 +133,7 @@ namespace Backlogger.ApiModels
   public partial class RawgSearchClip
   {
     [JsonProperty("clip")]
-    public Uri ClipClip { get; set; }
+    public string ClipClip { get; set; }
 
     [JsonProperty("clips")]
     public RawgSearchClips Clips { get; set; }
@@ -142,19 +142,19 @@ namespace Backlogger.ApiModels
     public string Video { get; set; }
 
     [JsonProperty("preview")]
-    public Uri Preview { get; set; }
+    public string Preview { get; set; }
   }
 
   public partial class RawgSearchClips
   {
     [JsonProperty("320")]
-    public Uri The320 { get; set; }
+    public string The320 { get; set; }
 
     [JsonProperty("640")]
-    public Uri The640 { get; set; }
+    public string The640 { get; set; }
 
     [JsonProperty("full")]
-    public Uri Full { get; set; }
+    public string Full { get; set; }
   }
 
   public partial class RawgSearchGenre
@@ -172,7 +172,7 @@ namespace Backlogger.ApiModels
   public partial class RawgSearchPlatform
   {
     [JsonProperty("platform")]
-    public Genre PlatformPlatform { get; set; }
+    public RawgSearchGenre PlatformPlatform { get; set; }
   }
 
   public partial class RawgSearchRating
@@ -196,13 +196,13 @@ namespace Backlogger.ApiModels
     public long Id { get; set; }
 
     [JsonProperty("image")]
-    public Uri Image { get; set; }
+    public string Image { get; set; }
   }
 
   public partial class RawgSearchStore
   {
     [JsonProperty("store")]
-    public Genre StoreStore { get; set; }
+    public RawgSearchGenre StoreStore { get; set; }
   }
 
   public partial class RawgSearchTag
@@ -223,7 +223,7 @@ namespace Backlogger.ApiModels
     public long GamesCount { get; set; }
 
     [JsonProperty("image_background")]
-    public Uri ImageBackground { get; set; }
+    public string ImageBackground { get; set; }
   }
 
   public enum Title { Exceptional, Meh, Recommended, Skip };

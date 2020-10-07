@@ -18,26 +18,35 @@ namespace Backlogger.Controllers
     }
 
     [HttpPost]
-    public IActionResult Index (string searchOption, string searchString)
+    public IActionResult Index (string searchOption = null, string searchString = null, int page = 1)
     {
+      if (String.IsNullOrEmpty(searchString))
+      {
+        return RedirectToAction("Index", "Home");
+      }
       ItemIndexPostViewModel model = new ItemIndexPostViewModel();
       if (searchOption == "games") {
-        RawgSearchRoot results = Rawg.GetGamesSearch(searchString);
+        RawgSearchRoot results = Rawg.GetGamesSearch(searchString, page);
         model.GamesSearch = results;
+        model.Results = results.Count;
+        model.Pages = (results.Count + 19) / 20;
+        model.CurrentPage = page;
       }
       else if (searchOption == "movies")
       {
-        TmdbMovieSearchRoot results = Tmdb.GetMoviesSearch(searchString);
+        TmdbMovieSearchRoot results = Tmdb.GetMoviesSearch(searchString, page);
         model.MovieSearch = results;
+        model.Results = results.TotalResults;
+        model.Pages = results.TotalPages;
+        model.CurrentPage = page;
       }
       else if (searchOption == "tv")
       {
-        TmdbTvSearchRoot results = Tmdb.GetTvSearch(searchString);
+        TmdbTvSearchRoot results = Tmdb.GetTvSearch(searchString, page);
         model.TvSearch = results;
-      }
-      else
-      {
-        RedirectToAction("Home", "Index");
+        model.Results = results.TotalResults;
+        model.Pages = results.TotalPages;
+        model.CurrentPage = page;
       }
       return View(model);
     }

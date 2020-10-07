@@ -9,7 +9,8 @@ namespace Backlogger.ViewModels
     public TmdbTvSearchRoot TvSearch { get; set; } = null;
     public string searchOption { get; set; }
     public string searchString { get; set; }
-    public int Pages { get; set; } = 1;
+    public long Results { get; set; }
+    public long Pages { get; set; } = 1;
     public int CurrentPage { get; set; }
   }
 }

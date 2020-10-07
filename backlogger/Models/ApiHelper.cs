@@ -21,7 +21,7 @@ namespace Backlogger.Models
       return response.Content;
     }
 
-    public static async Task<string> RawgIdApiCall(int id)
+    public static async Task<string> RawgIdApiCall(long id)
     {
       RestClient client = new RestClient("https://api.rawg.io/api/games/");
       RestRequest request = new RestRequest($"{id}");

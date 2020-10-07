@@ -80,6 +80,12 @@ body {
   filter: invert(26%) sepia(0%) saturate(0%) hue-rotate(26deg) brightness(97%) contrast(99%);
 }
 
+.no-game-poster {
+  height: 100%;
+  max-width: 100%;
+  filter: invert(26%) sepia(0%) saturate(0%) hue-rotate(26deg) brightness(97%) contrast(99%);
+}
+
 .movie-card-button {
   width: 100%;
 }
@@ -97,6 +103,11 @@ body {
   flex: 0 0 125px;
 }
 
+.game-search-column-left {
+  width: 200px;
+  flex: 0 0 200px;
+}
+
 .movie-search-column-right {
   width: 125px;
   flex: 0 0 125px;
@@ -107,5 +118,13 @@ body {
 }
 
 .glow {
-  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e60000, 0 0 20px #e60000, 0 0 25px #e60000, 0 0 30px #e60000, 0 0 35px #e60000;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 14px #e60000, 0 0 18px #e60000, 0 0 21px #e60000, 0 0 24px #e60000, 0 0 26px #e60000;
+}
+
+.pagination-container{
+  display: flex;
+}
+
+.pagination-link{
+  flex-grow: 1;
 }
