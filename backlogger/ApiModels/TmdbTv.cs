@@ -34,7 +34,7 @@ namespace Backlogger.ApiModels
     public List<string> Languages { get; set; }
 
     [JsonProperty("last_air_date")]
-    public DateTimeOffset LastAirDate { get; set; }
+    public string LastAirDate { get; set; }
 
     [JsonProperty("last_episode_to_air")]
     public LastEpisodeToAir LastEpisodeToAir { get; set; }

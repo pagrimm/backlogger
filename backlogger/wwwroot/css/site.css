@@ -141,11 +141,24 @@ body {
 }
 
 .movie-details-poster{
+  width: 100%;
   max-width: 300px;
   min-width: 100px;
   text-align: center;
+  flex-grow: 1;
 }
 
 .movie-details-content{
   min-width: 200px;
+}
+
+.no-tv-poster-details{
+  max-width: 100%;
+  filter: invert(26%) sepia(0%) saturate(0%) hue-rotate(26deg) brightness(97%) contrast(99%);
+}
+
+.no-movie-poster-details{
+  max-width: 100%;
+  filter: invert(26%) sepia(0%) saturate(0%) hue-rotate(26deg) brightness(97%) contrast(99%);
+  transform: scale(1, 1.25);
 }

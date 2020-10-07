@@ -28,7 +28,11 @@
         <p class="card-text">@Model.Overview</p>
       </div>
       <div class="movie-search-column-right ml-3">
-        <button class="btn btn-warning mb-3 movie-card-button">Show Details</button>
+        @using (Html.BeginForm("Details", "Items", new {id = Model.Id}, FormMethod.Get))
+        {
+          <input type="hidden" id="type" name="type" value="tv">
+          <button class="btn btn-warning mb-3 movie-card-button" type="submit">Show Details</button>
+        }
         <button class="btn btn-success movie-card-button">Add to Backlog</button>
       </div>
     </div>

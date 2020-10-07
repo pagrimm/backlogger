@@ -42,6 +42,7 @@
       <div class="movie-search-column-right ml-3">
         @using (Html.BeginForm("Details", "Items", new {id = Model.Id}, FormMethod.Get))
         {
+          <input type="hidden" id="type" name="type" value="movie">
           <button class="btn btn-warning mb-3 movie-card-button" type="submit">Movie Details</button>
         }
         <button class="btn btn-success movie-card-button">Add to Backlog</button>

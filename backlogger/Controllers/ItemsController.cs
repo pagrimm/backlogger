@@ -52,11 +52,24 @@ namespace Backlogger.Controllers
       return View(model);
     }
 
-    public IActionResult Details(long id)
+    public IActionResult Details(long id, string type)
     {
       ItemDetailsViewModel model = new ItemDetailsViewModel();
-      TmdbMovieRoot result = Tmdb.GetMovieById(id);
-      model.MovieDetails = result;
+      if (type == "game")
+      {
+        RawgIdRoot result = Rawg.GetGameById(id);
+        model.GameDetails = result;
+      }
+      else if (type == "movie")
+      {
+        TmdbMovieRoot result = Tmdb.GetMovieById(id);
+        model.MovieDetails = result;
+      }
+      else if (type == "tv")
+      {
+        TmdbTvRoot result = Tmdb.GetTvById(id);
+        model.TvDetails = result;
+      }
       return View(model);
     }
   }
