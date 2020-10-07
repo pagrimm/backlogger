@@ -27,6 +27,7 @@ body {
 }
 
 .main-window {
+  padding: 16px;
   position: relative;
   display: flex;
   flex-direction: column;

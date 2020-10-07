@@ -12,33 +12,37 @@
   <meta name="author" content="">
 
   <title>Backlogger</title>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/site.css" rel="stylesheet">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/site.css" rel="stylesheet">
 
 </head>
 
 <body>
   @Html.Partial("Navbar")
   <div class="page-container">
+    @if (User.Identity.IsAuthenticated)
+    {
     <div class="sidebar">
       <div class="sidebar-item">
-        Games
+        <i class="fad fa-gamepad-alt mr-3"></i> Games
       </div>
       <div class="sidebar-item">
-        Movies
+        <i class="fad fa-film mr-3"></i> Movies
       </div>
       <div class="sidebar-item">
-        TV Shows
+        <i class="fad fa-tv-retro mr-3"></i>TV Shows
       </div>
     </div>
+    }
     <div class="main-window">
       @RenderBody()
     </div>
   </div>
   
 
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/74e58ffcfd.js" crossorigin="anonymous"></script>
 
 </body>
 
