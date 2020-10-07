@@ -1,15 +1,17 @@
+@using System.Security.Claims
+
 <nav class="navbar navbar-expand-lg">
   <div class="navbar-brand" href="#">Backlogger</div>
-    <form class="form-inline mx-auto">
+    <form class="form-inline mx-auto" action="/items/" method="post">
       <div class="input-group">
         <div class="input-group-prepend">
-          <select class="form-control search-select">
-            <option>Search Games</i></option>
-            <option>Search Movies</i></option>
-            <option>Search TV</option>
+          <select class="form-control search-select" name="searchOption" id="searchOption">
+            <option value="games">Search Games</i></option>
+            <option value="movies">Search Movies</i></option>
+            <option value="tv">Search TV</option>
           </select>
         </div>
-        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control" name="searchString" id="searchString" type="search" aria-label="Search">
         <div class="input-group-append">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
         </div>
@@ -22,7 +24,7 @@
           <i class="fad fa-user-circle mr-1"></i> @User.Identity.Name
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#"><i class="fad fa-file-user mr-2"></i> Edit Account</a>
+          <a class="dropdown-item" href="/account/edit/@this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value"><i class="fad fa-file-user mr-2"></i> Edit Account</a>
           @using (Html.BeginForm("LogOff", "Account"))
           {
             <a class="dropdown-item" href="#" onclick="this.parentNode.submit()"><i class="fad fa-sign-out-alt mr-2"></i> Log Out</a>
@@ -32,8 +34,8 @@
     }
     else
     {
-      <a class="mr-3" href="/account/register"><i class="fad fa-user-plus"></i> Create Account</a>
-      <a href="/account/login"><i class="fad fa-sign-out-alt"></i> Login</a>
+      <a class="mr-4" href="/account/register"><i class="fad fa-user-plus mr-1"></i> Create Account</a>
+      <a href="/account/login"><i class="fad fa-sign-in-alt mr-1"></i> Login</a>
     }
     
 </nav>

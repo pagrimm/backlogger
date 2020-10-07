@@ -15,7 +15,7 @@
     <div class="card-body">
       <h4 class="mb-5"><span class="text-dark mr-3">User Name:</span> @Model.UserName</h4>
       <h4 class="mb-5"><span class="text-dark mr-3">Email:</span> @Model.Email</h4>
-      <h5>@Html.ActionLink("Edit Account", "Edit", new { id = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value})</h5>
+      <h5>@Html.ActionLink("Edit Account", "Edit", new {id = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value})</h5>
     </div>
   </div>
   @using (Html.BeginForm("LogOff", "Account"))

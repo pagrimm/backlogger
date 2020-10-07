@@ -1,0 +1,35 @@
+@using Backlogger.ViewModels
+@using Backlogger.ApiModels
+@model ItemIndexPostViewModel
+
+@{
+  Layout = "_Layout";
+}
+
+@if (Model.TvSearch != null)
+{
+  foreach(TmdbTvSearchResult result in Model.TvSearch.Results)
+  {
+    <p>@result.Name</p>
+    <p>@result.Overview</p>
+    <hr />
+  }
+}
+@if (Model.GamesSearch != null)
+{
+  foreach(RawgSearchResult result in Model.GamesSearch.Results)
+  {
+    <p>@result.Name</p>
+    <p>@result.Released</p>
+    <hr />
+  }
+}
+@if (Model.MovieSearch != null)
+{
+  foreach(TmdbMovieSearchResult result in Model.MovieSearch.Results)
+  {
+    <p>@result.Title</p>
+    <p>@result.Overview</p>
+    <hr />
+  }
+}
