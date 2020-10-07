@@ -1,0 +1,25 @@
+@using Backlogger.ViewModels
+@model ItemIndexPostViewModel
+
+@{long PageCount = Model.Pages;}
+@if(Model.Pages > 1)
+{
+  @if(Model.Pages > 20)
+  {
+    PageCount = 20;
+  }
+  <div class="pagination-container mb-3">
+    <div class="pagination-link">
+      Pages
+    </div>
+    @for(int i = 1; i <= PageCount; i++)
+    {
+      <div class="pagination-link">
+        @using (Html.BeginForm("Index", "Items", new {searchOption = Model.SearchOption, searchString = Model.SearchString, page = i}))
+        {
+          <a href="#" onclick="this.parentNode.submit()">@i</a>
+        }
+      </div>
+    }
+  </div>
+}

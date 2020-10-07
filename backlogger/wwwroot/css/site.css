@@ -29,7 +29,7 @@ body {
 }
 
 .main-window {
-  overflow-y: scroll;
+  overflow-y: auto;
   padding: 16px;
   position: relative;
   display: flex;
@@ -123,8 +123,11 @@ body {
 
 .pagination-container{
   display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
 .pagination-link{
-  flex-grow: 1;
+  width: 40px;
+  flex: 0 0 40px;
 }

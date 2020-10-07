@@ -25,12 +25,14 @@ namespace Backlogger.Controllers
         return RedirectToAction("Index", "Home");
       }
       ItemIndexPostViewModel model = new ItemIndexPostViewModel();
+      model.CurrentPage = page;
+      model.SearchOption = searchOption;
+      model.SearchString = searchString;
       if (searchOption == "games") {
         RawgSearchRoot results = Rawg.GetGamesSearch(searchString, page);
         model.GamesSearch = results;
         model.Results = results.Count;
         model.Pages = (results.Count + 19) / 20;
-        model.CurrentPage = page;
       }
       else if (searchOption == "movies")
       {
@@ -38,7 +40,6 @@ namespace Backlogger.Controllers
         model.MovieSearch = results;
         model.Results = results.TotalResults;
         model.Pages = results.TotalPages;
-        model.CurrentPage = page;
       }
       else if (searchOption == "tv")
       {
@@ -46,7 +47,6 @@ namespace Backlogger.Controllers
         model.TvSearch = results;
         model.Results = results.TotalResults;
         model.Pages = results.TotalPages;
-        model.CurrentPage = page;
       }
       return View(model);
     }
