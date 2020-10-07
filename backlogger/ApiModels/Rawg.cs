@@ -16,7 +16,7 @@ namespace Backlogger.ApiModels
       return root;
     }
 
-    public static RawgSearchRoot GetGamesSearch(string query, int page = 1, int pageSize = 10)
+    public static RawgSearchRoot GetGamesSearch(string query, int page = 1, int pageSize = 20)
     {
       var apiCallTask = ApiHelper.RawgSearchApiCall(query, page, pageSize);
       var result = apiCallTask.Result;

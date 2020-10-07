@@ -10,9 +10,7 @@
 {
   foreach(TmdbTvSearchResult result in Model.TvSearch.Results)
   {
-    <p>@result.Name</p>
-    <p>@result.Overview</p>
-    <hr />
+    @Html.Partial("TvSearchCard", result);
   }
 }
 @if (Model.GamesSearch != null)
@@ -28,8 +26,6 @@
 {
   foreach(TmdbMovieSearchResult result in Model.MovieSearch.Results)
   {
-    <p>@result.Title</p>
-    <p>@result.Overview</p>
-    <hr />
+    @Html.Partial("MovieSearchCard", result);
   }
 }

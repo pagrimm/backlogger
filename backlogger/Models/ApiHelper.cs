@@ -29,7 +29,7 @@ namespace Backlogger.Models
       return response.Content;
     }
 
-    public static async Task<string> RawgSearchApiCall(string query, int page = 1, int pageSize = 10)
+    public static async Task<string> RawgSearchApiCall(string query, int page = 1, int pageSize = 20)
     {
       RestClient client = new RestClient("https://api.rawg.io/api/games");
       RestRequest request = new RestRequest($"?page={page}&page_size={pageSize}&search={query}");

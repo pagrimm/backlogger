@@ -1,0 +1,36 @@
+@using Backlogger.ApiModels
+@model TmdbMovieSearchResult
+
+@{string BackgroundStyle = "";}
+@{string TransParentBg = "";}
+@if (Model.BackdropPath != null)
+{
+  BackgroundStyle = "background:url(https://image.tmdb.org/t/p/original/" + @Model.BackdropPath + ");background-size:100% auto; background-position:center";
+  TransParentBg = "trans-black-bg";
+}
+
+<div class="card mb-3 movie-search-card" style="@BackgroundStyle">
+  <div class="card-body">
+    <div class="movie-search-container">
+      <div class="movie-search-column-left mr-3">
+        @if (Model.PosterPath != null)
+        {
+          <img class="search-poster" src="https://image.tmdb.org/t/p/original/@Model.PosterPath">
+        }
+        else
+        {
+          <img class="no-movie-poster" src="/img/film-alt-duotone.svg">
+        }
+      </div>
+      <div class="movie-search-column-center p-2 @TransParentBg">
+        <h5 class="card-title">@Model.Title</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Released: @Model.ReleaseDate</h6>
+        <p class="card-text">@Model.Overview</p>
+      </div>
+      <div class="movie-search-column-right ml-3">
+        <button class="btn btn-warning mb-3 movie-card-button">Movie Details</button>
+        <button class="btn btn-success movie-card-button">Add to Backlog</button>
+      </div>
+    </div>
+  </div>
+</div>
