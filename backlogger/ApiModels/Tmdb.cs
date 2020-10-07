@@ -7,7 +7,7 @@ namespace Backlogger.ApiModels
 {
   public class Tmdb
   {
-    public static TmdbMovieRoot GetMovieById(int id)
+    public static TmdbMovieRoot GetMovieById(long id)
     {
       var apiCallTask = ApiHelper.TmdbMovieIdApiCall(id);
       var result = apiCallTask.Result;
@@ -25,7 +25,7 @@ namespace Backlogger.ApiModels
       return root;
     }
 
-    public static TmdbTvRoot GetTvById(int id)
+    public static TmdbTvRoot GetTvById(long id)
     {
       var apiCallTask = ApiHelper.TmdbTvIdApiCall(id);
       var result = apiCallTask.Result;

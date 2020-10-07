@@ -1,0 +1,24 @@
+@using Backlogger.ViewModels
+@using Backlogger.ApiModels
+@model ItemDetailsViewModel
+
+@{
+  Layout = "_Layout";
+}
+
+@if(Model.TvDetails != null)
+{
+  @Html.Partial("TvDetailsCard", Model.TvDetails);
+}
+else if (Model.GameDetails != null)
+{
+  @Html.Partial("GameDetailsCard", Model.GameDetails);
+}
+else if (Model.MovieDetails != null)
+{
+  @Html.Partial("MovieDetailsCard", Model.MovieDetails);
+}
+else
+{
+  <p>Nada in ViewModel</p>
+}

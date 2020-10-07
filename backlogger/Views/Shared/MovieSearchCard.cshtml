@@ -13,7 +13,7 @@
     ParsedDate = DateTime.Parse(Model.ReleaseDate);
     ReleaseDate = "<h6 class='card-subtitle mb-2 text-muted'>Released: " + @CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(ParsedDate.Month) + " " + @ParsedDate.Day + ", " + @ParsedDate.Year + "</h6>";
   }
-  }
+}
 
 @if (Model.BackdropPath != null)
 {
@@ -40,7 +40,10 @@
         <p class="card-text">@Model.Overview</p>
       </div>
       <div class="movie-search-column-right ml-3">
-        <button class="btn btn-warning mb-3 movie-card-button">Movie Details</button>
+        @using (Html.BeginForm("Details", "Items", new {id = Model.Id}, FormMethod.Get))
+        {
+          <button class="btn btn-warning mb-3 movie-card-button" type="submit">Movie Details</button>
+        }
         <button class="btn btn-success movie-card-button">Add to Backlog</button>
       </div>
     </div>

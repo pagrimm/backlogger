@@ -28,7 +28,8 @@ namespace Backlogger.Controllers
       model.CurrentPage = page;
       model.SearchOption = searchOption;
       model.SearchString = searchString;
-      if (searchOption == "games") {
+      if (searchOption == "games")
+      {
         RawgSearchRoot results = Rawg.GetGamesSearch(searchString, page);
         model.GamesSearch = results;
         model.Results = results.Count;
@@ -48,6 +49,14 @@ namespace Backlogger.Controllers
         model.Results = results.TotalResults;
         model.Pages = results.TotalPages;
       }
+      return View(model);
+    }
+
+    public IActionResult Details(long id)
+    {
+      ItemDetailsViewModel model = new ItemDetailsViewModel();
+      TmdbMovieRoot result = Tmdb.GetMovieById(id);
+      model.MovieDetails = result;
       return View(model);
     }
   }

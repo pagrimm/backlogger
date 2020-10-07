@@ -37,7 +37,7 @@ namespace Backlogger.Models
       return response.Content;
     }
 
-    public static async Task<string> TmdbMovieIdApiCall(int id)
+    public static async Task<string> TmdbMovieIdApiCall(long id)
     {
       RestClient client = new RestClient("https://api.themoviedb.org/3/movie/");
       RestRequest request = new RestRequest($"{id}?api_key={EnvironmentVariables.TmdbKey}");
@@ -53,7 +53,7 @@ namespace Backlogger.Models
       return response.Content;
     }
 
-    public static async Task<string> TmdbTvIdApiCall(int id)
+    public static async Task<string> TmdbTvIdApiCall(long id)
     {
       RestClient client = new RestClient("https://api.themoviedb.org/3/tv/");
       RestRequest request = new RestRequest($"{id}?api_key={EnvironmentVariables.TmdbKey}");

@@ -131,3 +131,21 @@ body {
   width: 40px;
   flex: 0 0 40px;
 }
+
+.movie-details-card{
+  min-width: 350px
+}
+
+.movie-details-container{
+  display:flex;
+}
+
+.movie-details-poster{
+  max-width: 300px;
+  min-width: 100px;
+  text-align: center;
+}
+
+.movie-details-content{
+  min-width: 200px;
+}
