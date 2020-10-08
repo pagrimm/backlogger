@@ -1,0 +1,263 @@
+html {
+  overflow: hidden;
+  height: 100%;
+  min-width: 768px;
+}
+
+body {
+  height: 100%;
+  min-width: 800px
+}
+
+.page-container {
+  position: absolute;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  height: calc(100% - 70px);
+}
+
+.sidebar {
+  position: relative;
+  overflow: hidden;
+  min-width: 150px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-window {
+  overflow-y: auto;
+  padding: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background: rgb(65,54,73);
+  background: linear-gradient(135deg, rgba(65,54,73,1) 0%, rgba(133,71,71,1) 50%, rgba(143,109,61,1) 100%);
+}
+
+.main-window, .sidebar {
+  height: 100%
+}
+
+.sidebar-item {
+  padding: 16px;
+}
+
+.sidebar-item:hover {
+  background-color: gray;
+}
+
+.search-select {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.movie-search-card {
+  min-width: 568px;
+}
+.search-poster {
+  width: 100%;
+}
+
+.trans-black-bg {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.no-movie-poster {
+  height: 100%;
+  max-width: 100%;
+  transform: scale(1, 1.40);
+  filter: invert(26%) sepia(0%) saturate(0%) hue-rotate(26deg) brightness(97%) contrast(99%);
+}
+
+.no-tv-poster {
+  height: 100%;
+  max-width: 100%;
+  filter: invert(26%) sepia(0%) saturate(0%) hue-rotate(26deg) brightness(97%) contrast(99%);
+}
+
+.no-game-poster {
+  height: 100%;
+  max-width: 100%;
+  filter: invert(26%) sepia(0%) saturate(0%) hue-rotate(26deg) brightness(97%) contrast(99%);
+}
+
+.movie-card-button {
+  width: 100%;
+}
+
+.movie-card-button .fad {
+  font-size: 2em;
+}
+
+.movie-search-container {
+  display: flex;
+}
+
+.movie-search-column-left {
+  width: 125px;
+  flex: 0 0 125px;
+}
+
+.movie-item-column-left {
+  width: 140px;
+  flex: 0 0 140px;
+}
+
+.game-search-column-left {
+  width: 200px;
+  flex: 0 0 200px;
+}
+
+.game-item-column-left {
+  width: 375px;
+  flex: 0 0 375px;
+}
+
+.movie-search-column-right {
+  width: 45px;
+  flex: 0 0 45px;
+}
+
+.movie-search-column-center {
+  flex-grow: 1
+}
+
+.glow {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 14px #e60000, 0 0 18px #e60000, 0 0 21px #e60000, 0 0 24px #e60000, 0 0 26px #e60000;
+}
+
+.pagination-container{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.pagination-link{
+  width: 40px;
+  flex: 0 0 40px;
+}
+
+.movie-details-card{
+  min-width: 350px
+}
+
+.movie-details-container{
+  display:flex;
+}
+
+.movie-details-poster{
+  width: 100%;
+  max-width: 300px;
+  min-width: 100px;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.movie-details-content{
+  min-width: 200px;
+  width: 100%
+}
+
+.no-tv-poster-details{
+  max-width: 100%;
+  filter: invert(26%) sepia(0%) saturate(0%) hue-rotate(26deg) brightness(97%) contrast(99%);
+}
+
+.no-movie-poster-details{
+  max-width: 100%;
+  filter: invert(26%) sepia(0%) saturate(0%) hue-rotate(26deg) brightness(97%) contrast(99%);
+  transform: scale(1, 1.25);
+}
+
+.item-card-column-right {
+  width: 45px;
+  flex: 0 0 45px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.home-index-card{
+  max-width: 900px;
+}
+
+.home-index-card-container {
+  display: flex;
+}
+
+.home-index-card-left {
+  width: 125px;
+  flex: 0 0 125px;
+  display: flex;
+
+}
+
+.index-card-art {
+  height: 100%;
+  max-width: 100%;
+  filter: invert(26%) sepia(0%) saturate(0%) hue-rotate(26deg) brightness(99%) contrast(99%);
+}
+
+.master-index-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-card {
+  min-width: 500px;
+  max-width: 900px;
+}
+
+.form-control {
+  color: #fff;
+  background-color: #292929;
+}
+
+.form-control:focus {
+  color: #fff;
+  background-color: #292929;
+  border: black 1px;
+  box-shadow: none;
+}
+
+textarea:focus, input:focus {
+  color: #fff;
+  background-color: #292929;
+}
+
+.white {
+  color: white;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.dashboard-card {
+  display:flex;
+}
+
+.dashboard-card .card-body {
+  text-align: center;
+}
+
+.dashboard-image {
+  height: 200px;
+  width: 100%;
+  max-width: 100%;
+  filter: invert(26%) sepia(0%) saturate(0%) hue-rotate(26deg) brightness(25%) contrast(99%);
+}

@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -129,7 +127,7 @@ namespace Backlogger.Controllers
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(long id, string type, string screenshot)
+    public async Task<IActionResult> Create(long id, string type, string screenshot, string description)
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
@@ -140,6 +138,7 @@ namespace Backlogger.Controllers
         newItem.GetRawgValues(itemDetails);
         newItem.Poster = screenshot;
         newItem.Priority = currentUser.PriorityValue;
+        newItem.Description = description;
         _db.Items.Add(newItem);
         ItemUser newItemUser = new ItemUser{Item = newItem, User = currentUser, ItemId = newItem.ItemId, UserId = userId};
         _db.ItemUser.Add(newItemUser);

@@ -80,14 +80,6 @@ else
   @for (int i = 0; i < Model.RecentItems.Count; i++)
   {
     ItemListViewModel viewModel = new ItemListViewModel{CurrentItem = Model.RecentItems[i], ShowingCompleted = false};
-    if (i != 0)
-    {
-      viewModel.PreviousId = Model.RecentItems[i - 1].ItemId;
-    }
-    if (i != Model.RecentItems.Count -1)
-    {
-      viewModel.NextId = Model.RecentItems[i + 1].ItemId;
-    }
-    @Html.Partial("ItemCard", viewModel)
+    @Html.Partial("DashboardItemCard", viewModel)
   }
 }

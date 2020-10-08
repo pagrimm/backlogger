@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Identity;
 using Backlogger.Models;
 using System.Threading.Tasks;
 using Backlogger.ViewModels;
-using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using System;
 

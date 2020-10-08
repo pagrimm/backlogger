@@ -49,13 +49,6 @@
         <p class="card-text">@Model.CurrentItem.Description</p>
       </div>
       <div class="item-card-column-right ml-3">
-        @using (Html.BeginForm("SetPriority", "Items"))
-        {
-          <input type="hidden" id="id1" name="id1" value="@Model.PreviousId">
-          <input type="hidden" id="id2" name="id2" value="@Model.CurrentItem.ItemId">
-          <input type="hidden" id="typeFilter" name="typeFilter" value="@Model.CurrentItem.Type">
-          <button class="btn btn-primary mb-2 movie-card-button" type="submit"><i class="fas fa-arrow-up"></i></button>
-        }
         @using (Html.BeginForm("SetWatched", "Items"))
         {
           <input type="hidden" id="typeFilter" name="typeFilter" value="@Model.CurrentItem.Type">
@@ -80,13 +73,6 @@
           <input type="hidden" id="typeFilter" name="typeFilter" value="@Model.CurrentItem.Type">
           <input type="hidden" id="id" name="id" value="@Model.CurrentItem.ItemId">
           <button class="btn btn-danger mb-2 movie-card-button"><i class="fas fa-trash"></i></button>
-        }
-        @using (Html.BeginForm("SetPriority", "Items"))
-        {
-          <input type="hidden" id="id1" name="id1" value="@Model.NextId">
-          <input type="hidden" id="id2" name="id2" value="@Model.CurrentItem.ItemId">
-          <input type="hidden" id="typeFilter" name="typeFilter" value="@Model.CurrentItem.Type">
-          <button class="btn btn-primary mb-2 movie-card-button" type="submit"><i class="fas fa-arrow-down"></i></button>
         }
       </div>
     </div>

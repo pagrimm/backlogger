@@ -27,8 +27,10 @@ namespace Backlogger.ApiModels
 
     public static string GetDescriptionById(long id)
     {
-      RawgIdRoot GameDetails = Rawg.GetGameById(id);
-      return GameDetails.Description;
+      var apiCallTask = ApiHelper.RawgIdApiCall(id);
+      var result = apiCallTask.Result;
+      RawgIdRootShort root = JsonConvert.DeserializeObject<RawgIdRootShort>(result);
+      return root.DescriptionRaw;
     }
   }
 }

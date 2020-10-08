@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Backlogger.Models;
 using Backlogger.ApiModels;
 
 namespace Backlogger.ViewModels

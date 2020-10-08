@@ -1,6 +1,7 @@
-@using System;
-@using System.Globalization;
+@using System
+@using System.Globalization
 @using Backlogger.ViewModels
+@using Backlogger.ApiModels
 @model SearchListViewModel
 
 @{
@@ -8,6 +9,11 @@
   string TransParentBg = "";
   DateTime ParsedDate = new DateTime();
   string ReleaseDate = "";
+  string Description = Rawg.GetDescriptionById(Model.RawgSearchResult.Id);
+  if (Description.Length > 500)
+  {
+    Description = Description.Substring(0, 500) + "(CONT.)";
+  }
   if (!String.IsNullOrEmpty(Model.RawgSearchResult.Released))
   {
     ParsedDate = DateTime.Parse(Model.RawgSearchResult.Released);
@@ -35,6 +41,7 @@
       <div class="movie-search-column-center p-2 @TransParentBg">
         <h5 class="card-title">@Model.RawgSearchResult.Name</h5>
         @Html.Raw(ReleaseDate)
+        <p>@Description</p>
       </div>
       <div class="movie-search-column-right ml-3">
         @using (Html.BeginForm("Details", "Items", new {id = Model.RawgSearchResult.Id}, FormMethod.Get))
@@ -55,6 +62,7 @@
               <input type="hidden" id="screenshot" name="screenshot" value="@Model.RawgSearchResult.ShortScreenshots[1].Image">
             }
             <input type="hidden" id="type" name="type" value="game">
+            <input type="hidden" id="description" name="description" value="@Description">
             <button class="btn btn-success movie-card-button" type="submit"><i class="fas fa-plus"></i></button>
           }
         }

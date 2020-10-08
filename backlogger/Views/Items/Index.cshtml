@@ -1,4 +1,3 @@
-@using Backlogger.Models
 @using Backlogger.ViewModels
 @using Backlogger.ApiModels
 @model ItemIndexViewModel
@@ -40,7 +39,7 @@
     foreach(TmdbMovieSearchResult result in Model.MovieSearch.Results)
     {
       SearchListViewModel resultModel = new SearchListViewModel{TmdbMovieSearchResult = result, ApiIds = Model.ApiIds};
-      @Html.Partial("MovieSearchCard", result);
+      @Html.Partial("MovieSearchCard", resultModel);
     }
   }
   @Html.Partial("PaginationCounter", Model)
