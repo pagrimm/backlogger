@@ -20,7 +20,7 @@
     @if (User.Identity.IsAuthenticated)
     {
       <div class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fad fa-user-circle mr-1"></i> @User.Identity.Name
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -34,8 +34,8 @@
     }
     else
     {
-      <a class="mr-4" href="/account/register"><i class="fad fa-user-plus mr-1"></i> Create Account</a>
-      <a href="/account/login"><i class="fad fa-sign-in-alt mr-1"></i> Login</a>
+      <a class="mr-4 white" href="/account/register"><i class="fad fa-user-plus mr-1"></i> Create Account</a>
+      <a class="white" href="/account/login"><i class="fad fa-sign-in-alt mr-1"></i> Login</a>
     }
     
 </nav>

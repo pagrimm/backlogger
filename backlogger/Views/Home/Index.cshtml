@@ -4,4 +4,75 @@
   Layout = "_Layout";
 }
 
-<p>Yo</p>
+@if (!User.Identity.IsAuthenticated)
+{
+  <div class="master-index-card-container">
+    <div class="card home-index-card border-primary mb-3">
+      <h5 class="card-header">Welcome to Backlogger</h5>
+      <div class="home-index-card-container p-3">
+        <div class="home-index-card-right mr-3">
+          <h4 class="card-title">Search for Media</h4>
+          <p class="card-text">Backlogger connects to a number of different APIs so that you can find nearly any book, movie, TV show, or video game you want. Create an account, log in, and use the search bar to get started.</p>
+        </div>
+        <div class="home-index-card-left"><img class="index-card-art" src="/img/search-duotone.svg"></div>
+      </div>
+    </div>
+
+    <div class="card home-index-card border-danger p-3 mb-3">
+      <div class="home-index-card-container">
+        <div class="home-index-card-left"><img class="index-card-art" src="/img/list-duotone.svg"></div>
+        <div class="home-index-card-right ml-3">
+          <h4 class="card-title">Add Media to your backlog</h4>
+          <p class="card-text">When you find what you're looking for, add it to your media backlog with one button. You can browse your backlog, set the priority of media items, and mark media as completed when you are done watching or playing.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card home-index-card border-warning p-3 mb-3">
+      <div class="home-index-card-container">
+        <div class="home-index-card-right mr-3">
+          <h4 class="card-title">Check out your dashboard</h4>
+          <p class="card-text">Sign in to access your media dashboard. You can see how many items you have in your backlog for each media category, how many items you've watched or played, and the most recent items you've added.</p>
+        </div>
+        <div class="home-index-card-left"><img class="index-card-art" src="/img/desktop-duotone.svg"></div>
+      </div>
+    </div>
+  </div>
+}
+else
+{
+  <div class="dashboard-container">
+    <div class="card dashboard-card mr-3" style="width:400px">
+      <img class="dashboard-image p-3" src="/img/list-duotone.svg" alt="Card image">
+      <div class="card-body">
+        <h4 class="card-title">John Doe</h4>
+        <p class="card-text">Some example text.</p>
+        <a href="#" class="btn btn-primary">See Profile</a>
+      </div>
+    </div>
+    <div class="card dashboard-card mr-3" style="width:400px">
+      <img class="dashboard-image p-3" src="/img/gamepad-alt-duotone.svg" alt="Card image">
+      <div class="card-body">
+        <h4 class="card-title">John Doe</h4>
+        <p class="card-text">Some example text.</p>
+        <a href="#" class="btn btn-primary">See Profile</a>
+      </div>
+    </div>
+    <div class="card dashboard-card mr-3" style="width:400px">
+      <img class="dashboard-image p-3" src="/img/film-alt-duotone.svg" alt="Card image">
+      <div class="card-body">
+        <h4 class="card-title">John Doe</h4>
+        <p class="card-text">Some example text.</p>
+        <a href="#" class="btn btn-primary">See Profile</a>
+      </div>
+    </div>
+    <div class="card dashboard-card" style="width:400px">
+      <img class="dashboard-image p-3" src="/img/tv-retro-duotone.svg" alt="Card image">
+      <div class="card-body">
+        <h4 class="card-title">John Doe</h4>
+        <p class="card-text">Some example text.</p>
+        <a href="#" class="btn btn-primary">See Profile</a>
+      </div>
+    </div>
+  </div>
+}

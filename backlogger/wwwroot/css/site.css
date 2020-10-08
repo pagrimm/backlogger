@@ -181,3 +181,79 @@ body {
   justify-content: center;
   flex-direction: column;
 }
+
+.home-index-card{
+  max-width: 900px;
+}
+
+.home-index-card-container {
+  display: flex;
+}
+
+.home-index-card-left {
+  width: 125px;
+  flex: 0 0 125px;
+  display: flex;
+
+}
+
+.index-card-art {
+  height: 100%;
+  max-width: 100%;
+  filter: invert(26%) sepia(0%) saturate(0%) hue-rotate(26deg) brightness(99%) contrast(99%);
+}
+
+.master-index-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-card {
+  min-width: 500px;
+  max-width: 900px;
+}
+
+.form-control {
+  color: #fff;
+  background-color: #292929;
+}
+
+.form-control:focus {
+  color: #fff;
+  background-color: #292929;
+  border: black 1px;
+  box-shadow: none;
+}
+
+textarea:focus, input:focus {
+  color: #fff;
+  background-color: #292929;
+}
+
+.white {
+  color: white;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.dashboard-card{
+  display:flex;
+}
+
+.dashboard-image {
+  height: 200px;
+  width: 100%;
+  max-width: 100%;
+  filter: invert(26%) sepia(0%) saturate(0%) hue-rotate(26deg) brightness(25%) contrast(99%);
+}

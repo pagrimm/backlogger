@@ -42,11 +42,11 @@ namespace Backlogger.Controllers
       IdentityResult result = await _userManager.CreateAsync(user, model.Password);
       if (result.Succeeded)
       {
-        return RedirectToAction("Index");
+        return RedirectToAction("Login");
       }
       else
       {
-        return View();
+        return RedirectToAction("Index", "Home");
       }
     }
 
@@ -61,7 +61,7 @@ namespace Backlogger.Controllers
       Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, isPersistent: true, lockoutOnFailure: false);
       if (result.Succeeded)
       {
-        return RedirectToAction("Index");
+        return RedirectToAction("Index", "Home");
       }
       else
       {
@@ -73,7 +73,7 @@ namespace Backlogger.Controllers
     public async Task<ActionResult> LogOff()
     {
       await _signInManager.SignOutAsync();
-      return RedirectToAction("Index");
+      return RedirectToAction("Index", "Home");
     }
 
     public async Task<ActionResult> Edit(string id)
@@ -96,7 +96,7 @@ namespace Backlogger.Controllers
       var result = await _userManager.UpdateAsync(user);
       if (result.Succeeded)
       {
-        return RedirectToAction("Index");
+        return RedirectToAction("Index", "Home");
       }
       else
       {

@@ -23,13 +23,25 @@
     @if (User.Identity.IsAuthenticated)
     {
     <div class="sidebar">
+      <a href="/">
+        <div class="sidebar-item">
+            <div class="row">
+              <div class="col-3 text-muted">
+                <i class="fad fa-home"></i>
+              </div>
+              <div class="col-9 white">
+                Home
+              </div>
+            </div>
+        </div>
+      </a>
       <a href="/items?typeFilter=book">
         <div class="sidebar-item">
             <div class="row">
               <div class="col-3">
                 <i class="fad fa-book"></i>
               </div>
-              <div class="col-9">
+              <div class="col-9 white">
                 Books
               </div>
             </div>
@@ -38,10 +50,10 @@
       <a href="/items?typeFilter=game">
         <div class="sidebar-item">
           <div class="row">
-            <div class="col-3">
+            <div class="col-3 text-danger">
               <i class="fad fa-gamepad-alt mr-3"></i>
             </div>
-            <div class="col-9">
+            <div class="col-9 white">
               Games
             </div>
           </div>
@@ -50,10 +62,10 @@
       <a href="/items?typeFilter=movie">
         <div class="sidebar-item">
           <div class="row">
-            <div class="col-3">
+            <div class="col-3 text-warning">
               <i class="fad fa-film mr-3"></i>
             </div>
-            <div class="col-9">
+            <div class="col-9 white">
               Movies
             </div>
           </div>
@@ -62,10 +74,10 @@
       <a href="/items?typeFilter=tv">
         <div class="sidebar-item">
           <div class="row">
-            <div class="col-3">
+            <div class="col-3 text-info">
               <i class="fad fa-tv-retro mr-3"></i>
             </div>
-            <div class="col-9">
+            <div class="col-9 white">
               TV Shows
             </div>
           </div>
