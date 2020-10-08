@@ -37,6 +37,19 @@ Stretch:
 * Clone the GitHub repository by running `git clone https://github.com/pagrimm/backlogger.git` in the terminal
 * Navigate to the newly created `backlogger.solution` folder
 * Navigate to the `backlogger` subfolder
+* Navigate to the `models` folder and create a `EnvironmentVariables.cs` file
+* The contents of the file should be as follows:
+```
+namespace Backlogger.Models
+{
+  public static class EnvironmentVariables
+  {
+    public static string TmdbKey = "your-api-key-here";
+  }
+}
+```
+* Acquire an API Key from https://developers.themoviedb.org/3/getting-started/introduction and put it in the `EnvironmentVariable.cs` file you created
+* Navigate to the `backlogger.solution\backlogger\` folder
 * Run `dotnet restore` to get application dependencies
 * Run `dotnet build` to build the application
 * Run `dotnet ef database update` to create the application database
