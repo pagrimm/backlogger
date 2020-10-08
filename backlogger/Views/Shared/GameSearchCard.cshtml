@@ -37,7 +37,15 @@
         @Html.Raw(ReleaseDate)
       </div>
       <div class="movie-search-column-right ml-3">
-        <button class="btn btn-warning mb-3 movie-card-button">Game Details</button>
+        @using (Html.BeginForm("Details", "Items", new {id = Model.Id}, FormMethod.Get))
+        {
+          <input type="hidden" id="type" name="type" value="game">
+          @if(Model.ShortScreenshots.Count > 1)
+          {
+            <input type="hidden" id="screenshot" name="screenshot" value="@Model.ShortScreenshots[1].Image">
+          }
+          <button class="btn btn-warning mb-3 movie-card-button" type="submit">Game Details</button>
+        }
         <button class="btn btn-success movie-card-button">Add to Backlog</button>
       </div>
     </div>

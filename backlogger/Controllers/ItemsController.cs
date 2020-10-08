@@ -52,13 +52,14 @@ namespace Backlogger.Controllers
       return View(model);
     }
 
-    public IActionResult Details(long id, string type)
+    public IActionResult Details(long id, string type, string screenshot = null)
     {
       ItemDetailsViewModel model = new ItemDetailsViewModel();
       if (type == "game")
       {
         RawgIdRoot result = Rawg.GetGameById(id);
         model.GameDetails = result;
+        model.ScreenShot = screenshot;
       }
       else if (type == "movie")
       {

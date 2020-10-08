@@ -1,0 +1,63 @@
+@using System
+@using System.Globalization
+@using Backlogger.ViewModels
+@using Backlogger.ApiModels
+@model ItemDetailsViewModel
+
+@{
+  DateTime ParsedDate = new DateTime();
+  string Released = "";
+  if (!String.IsNullOrEmpty(Model.GameDetails.Released))
+  {
+    ParsedDate = DateTime.Parse(Model.GameDetails.Released);
+    Released = @CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(ParsedDate.Month) + " " + @ParsedDate.Day + ", " + @ParsedDate.Year;
+  }
+  List<string> DeveloperList = new List<string>();
+  foreach(RawgIdDeveloper developer in Model.GameDetails.Developers){
+    DeveloperList.Add(developer.Name);
+  }
+  var DeveloperString = String.Join(", ", DeveloperList);
+  List<string> PlatformList = new List<string>();
+  foreach(RawgIdPlatformElement platform in Model.GameDetails.Platforms){
+    PlatformList.Add(platform.Platform.Name);
+  }
+  var PlatformString = String.Join(", ", PlatformList);
+}
+
+<div class="card movie-details-card p-3">
+  <div class="movie-details-container">
+    <div class="movie-details-poster">
+      @if (Model.ScreenShot != null)
+      {
+        <img class="search-poster mb-3" src="@Model.ScreenShot">
+      }
+      else
+      {
+        <img class="no-tv-poster-details mb-3" src="/img/gamepad-alt-duotone.svg">
+      }
+      <h3 class="card-title">@Model.GameDetails.Name</h3>
+      <button class="btn btn-success movie-card-button mt-3">Add to Backlog</button>
+    </div>
+    <div class="movie-details-content ml-3 p-2">
+      @if(Model.GameDetails.Released != null){
+        <h5 class="card-title">Released</h5>
+        <p>@Released</p>
+      }
+      @if(!String.IsNullOrEmpty(DeveloperString)){
+        <hr />
+        <h5 class="card-title">Developer</h5>
+        <p>@DeveloperString</p>
+      }
+      @if(!String.IsNullOrEmpty(PlatformString)){
+        <hr />
+        <h5 class="card-title">Platform</h5>
+        <p>@PlatformString</p>
+      }
+      @if(Model.GameDetails.Description != null){
+        <hr />
+        <h5 class="card-title">Description</h5>
+        @Html.Raw(Model.GameDetails.Description)
+      }
+    </div>
+  </div>
+</div>

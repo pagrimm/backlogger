@@ -150,6 +150,7 @@ body {
 
 .movie-details-content{
   min-width: 200px;
+  width: 100%
 }
 
 .no-tv-poster-details{
