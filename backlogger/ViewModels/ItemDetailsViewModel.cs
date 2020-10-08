@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Backlogger.ApiModels;
 
 namespace Backlogger.ViewModels
@@ -8,5 +9,6 @@ namespace Backlogger.ViewModels
     public TmdbMovieRoot MovieDetails { get; set; } = null;
     public TmdbTvRoot TvDetails { get; set; } = null;
     public string ScreenShot { get; set; } = null;
+    public List<long> ApiIds { get; set; }
   }
 }

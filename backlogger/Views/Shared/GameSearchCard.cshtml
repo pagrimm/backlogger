@@ -1,31 +1,31 @@
 @using System;
 @using System.Globalization;
-@using Backlogger.ApiModels
-@model RawgSearchResult
+@using Backlogger.ViewModels
+@model SearchListViewModel
 
 @{
   string BackgroundStyle = "";
   string TransParentBg = "";
   DateTime ParsedDate = new DateTime();
   string ReleaseDate = "";
-  if (!String.IsNullOrEmpty(Model.Released))
+  if (!String.IsNullOrEmpty(Model.RawgSearchResult.Released))
   {
-    ParsedDate = DateTime.Parse(Model.Released);
+    ParsedDate = DateTime.Parse(Model.RawgSearchResult.Released);
     ReleaseDate = "<h6 class='card-subtitle mb-2 text-muted'>Released: " + @CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(ParsedDate.Month) + " " + @ParsedDate.Day + ", " + @ParsedDate.Year + "</h6>";
   }
   }
-@if (Model.BackgroundImage != null)
+@if (Model.RawgSearchResult.BackgroundImage != null)
 {
-  BackgroundStyle = "background:url(" + @Model.BackgroundImage + "),#303030;background-size:100% auto; background-position:center";
+  BackgroundStyle = "background:url(" + @Model.RawgSearchResult.BackgroundImage + "),#303030;background-size:100% auto; background-position:center";
   TransParentBg = "trans-black-bg";
 }
 <div class="card mb-3 movie-search-card" style="@BackgroundStyle">
   <div class="card-body">
     <div class="movie-search-container">
       <div class="game-search-column-left mr-3">
-        @if (Model.ShortScreenshots.Count > 1)
+        @if (Model.RawgSearchResult.ShortScreenshots.Count > 1)
         {
-          <img class="search-poster" src="@Model.ShortScreenshots[1].Image">
+          <img class="search-poster" src="@Model.RawgSearchResult.ShortScreenshots[1].Image">
         }
         else
         {
@@ -33,27 +33,34 @@
         }
       </div>
       <div class="movie-search-column-center p-2 @TransParentBg">
-        <h5 class="card-title">@Model.Name</h5>
+        <h5 class="card-title">@Model.RawgSearchResult.Name</h5>
         @Html.Raw(ReleaseDate)
       </div>
       <div class="movie-search-column-right ml-3">
-        @using (Html.BeginForm("Details", "Items", new {id = Model.Id}, FormMethod.Get))
+        @using (Html.BeginForm("Details", "Items", new {id = Model.RawgSearchResult.Id}, FormMethod.Get))
         {
           <input type="hidden" id="type" name="type" value="game">
-          @if(Model.ShortScreenshots.Count > 1)
+          @if(Model.RawgSearchResult.ShortScreenshots.Count > 1)
           {
-            <input type="hidden" id="screenshot" name="screenshot" value="@Model.ShortScreenshots[1].Image">
+            <input type="hidden" id="screenshot" name="screenshot" value="@Model.RawgSearchResult.ShortScreenshots[1].Image">
           }
           <button class="btn btn-warning mb-3 movie-card-button" type="submit"><i class="fal fa-info-circle"></i></button>
         }
-        @using (Html.BeginForm("Create", "Items", new {id = Model.Id}, FormMethod.Post))
+        @if(!Model.ApiIds.Contains(Model.RawgSearchResult.Id))
         {
-          @if(Model.ShortScreenshots.Count > 1)
+          @using (Html.BeginForm("Create", "Items", new {id = Model.RawgSearchResult.Id}, FormMethod.Post))
           {
-            <input type="hidden" id="screenshot" name="screenshot" value="@Model.ShortScreenshots[1].Image">
+            @if(Model.RawgSearchResult.ShortScreenshots.Count > 1)
+            {
+              <input type="hidden" id="screenshot" name="screenshot" value="@Model.RawgSearchResult.ShortScreenshots[1].Image">
+            }
+            <input type="hidden" id="type" name="type" value="game">
+            <button class="btn btn-success movie-card-button" type="submit"><i class="fas fa-plus"></i></button>
           }
-          <input type="hidden" id="type" name="type" value="game">
-          <button class="btn btn-success movie-card-button" type="submit"><i class="fas fa-plus"></i></button>
+        }
+        else
+        {
+          <button class="btn btn-secondary movie-card-button" type="submit" disabled><i class="fal fa-times-square"></i></button>
         }
       </div>
     </div>

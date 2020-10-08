@@ -8,7 +8,7 @@
 
 @if(Model.TvDetails != null)
 {
-  @Html.Partial("TvDetailsCard", Model.TvDetails);
+  @Html.Partial("TvDetailsCard", Model);
 }
 else if (Model.GameDetails != null)
 {
@@ -16,7 +16,7 @@ else if (Model.GameDetails != null)
 }
 else if (Model.MovieDetails != null)
 {
-  @Html.Partial("MovieDetailsCard", Model.MovieDetails);
+  @Html.Partial("MovieDetailsCard", Model);
 }
 else
 {

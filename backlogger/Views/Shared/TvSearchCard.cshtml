@@ -1,11 +1,11 @@
-@using Backlogger.ApiModels
-@model TmdbTvSearchResult
+@using Backlogger.ViewModels
+@model SearchListViewModel
 
 @{string BackgroundStyle = "";}
 @{string TransParentBg = "";}
-@if (Model.BackdropPath != null)
+@if (Model.TmdbTvSearchResult.BackdropPath != null)
 {
-  BackgroundStyle = "background:url(https://image.tmdb.org/t/p/original/" + @Model.BackdropPath + "),#303030;background-size:100% auto; background-position:center";
+  BackgroundStyle = "background:url(https://image.tmdb.org/t/p/original/" + @Model.TmdbTvSearchResult.BackdropPath + "),#303030;background-size:100% auto; background-position:center";
   TransParentBg = "trans-black-bg";
 }
 
@@ -13,9 +13,9 @@
   <div class="card-body">
     <div class="movie-search-container">
       <div class="movie-search-column-left mr-3">
-        @if (Model.PosterPath != null)
+        @if (Model.TmdbTvSearchResult.PosterPath != null)
         {
-          <img class="search-poster" src="https://image.tmdb.org/t/p/original/@Model.PosterPath">
+          <img class="search-poster" src="https://image.tmdb.org/t/p/original/@Model.TmdbTvSearchResult.PosterPath">
         }
         else
         {
@@ -23,20 +23,27 @@
         }
       </div>
       <div class="movie-search-column-center p-2 @TransParentBg">
-        <h5 class="card-title">@Model.Name</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Air Date: @Model.FirstAirDate</h6>
-        <p class="card-text">@Model.Overview</p>
+        <h5 class="card-title">@Model.TmdbTvSearchResult.Name</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Air Date: @Model.TmdbTvSearchResult.FirstAirDate</h6>
+        <p class="card-text">@Model.TmdbTvSearchResult.Overview</p>
       </div>
       <div class="movie-search-column-right ml-3">
-        @using (Html.BeginForm("Details", "Items", new {id = Model.Id}, FormMethod.Get))
+        @using (Html.BeginForm("Details", "Items", new {id = Model.TmdbTvSearchResult.Id}, FormMethod.Get))
         {
           <input type="hidden" id="type" name="type" value="tv">
           <button class="btn btn-warning mb-3 movie-card-button" type="submit"><i class="fal fa-info-circle"></i></button>
         }
-        @using (Html.BeginForm("Create", "Items", new {id = Model.Id}, FormMethod.Post))
+        @if(!Model.ApiIds.Contains(Model.TmdbTvSearchResult.Id))
         {
-          <input type="hidden" id="type" name="type" value="tv">
-          <button class="btn btn-success movie-card-button" type="submit"><i class="fas fa-plus"></i></button>
+          @using (Html.BeginForm("Create", "Items", new {id = Model.TmdbTvSearchResult.Id}, FormMethod.Post))
+          {
+            <input type="hidden" id="type" name="type" value="tv">
+            <button class="btn btn-success movie-card-button" type="submit"><i class="fas fa-plus"></i></button>
+          }
+        }
+        else
+        {
+          <button class="btn btn-secondary movie-card-button" type="submit" disabled><i class="fal fa-times-square"></i></button>
         }
       </div>
     </div>

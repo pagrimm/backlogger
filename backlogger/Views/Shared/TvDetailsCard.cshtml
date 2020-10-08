@@ -1,34 +1,35 @@
 @using System;
 @using System.Globalization;
 @using Backlogger.ApiModels
-@model TmdbTvRoot
+@using Backlogger.ViewModels
+@model ItemDetailsViewModel
 
 @{
   DateTime ParsedDate = new DateTime();
   string FirstAirDate = "";
   string LastAirDate = "";
-  if (!String.IsNullOrEmpty(Model.FirstAirDate))
+  if (!String.IsNullOrEmpty(Model.TvDetails.FirstAirDate))
   {
-    ParsedDate = DateTime.Parse(Model.FirstAirDate);
+    ParsedDate = DateTime.Parse(Model.TvDetails.FirstAirDate);
     FirstAirDate = @CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(ParsedDate.Month) + " " + @ParsedDate.Day + ", " + @ParsedDate.Year;
   }
-  if (!String.IsNullOrEmpty(Model.LastAirDate))
+  if (!String.IsNullOrEmpty(Model.TvDetails.LastAirDate))
   {
-    ParsedDate = DateTime.Parse(Model.FirstAirDate);
+    ParsedDate = DateTime.Parse(Model.TvDetails.FirstAirDate);
     LastAirDate = @CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(ParsedDate.Month) + " " + @ParsedDate.Day + ", " + @ParsedDate.Year;
   }
   List<string> CreatedList = new List<string>();
-  foreach(CreatedBy createdBy in Model.CreatedBy){
+  foreach(CreatedBy createdBy in Model.TvDetails.CreatedBy){
     CreatedList.Add(createdBy.Name);
   }
   var CreatedString = String.Join(", ", CreatedList);
   List<string> NetworkList = new List<string>();
-  foreach(Network network in Model.Networks){
+  foreach(Network network in Model.TvDetails.Networks){
     NetworkList.Add(network.Name);
   }
   var NetworkString = String.Join(", ", NetworkList);
   List<string> ProductionCoList = new List<string>();
-  foreach(Network company in Model.ProductionCompanies)
+  foreach(Network company in Model.TvDetails.ProductionCompanies)
   {
     ProductionCoList.Add(company.Name);
   }
@@ -38,51 +39,62 @@
 <div class="card movie-details-card p-3">
   <div class="movie-details-container">
     <div class="movie-details-poster">
-      @if (Model.PosterPath != null)
+      @if (Model.TvDetails.PosterPath != null)
       {
-        <img class="search-poster mb-3" src="https://image.tmdb.org/t/p/original/@Model.PosterPath">
+        <img class="search-poster mb-3" src="https://image.tmdb.org/t/p/original/@Model.TvDetails.PosterPath">
       }
       else
       {
         <img class="no-tv-poster-details mb-3" src="/img/tv-retro-duotone.svg">
       }
-      <h3 class="card-title">@Model.Name</h3>
-      <button class="btn btn-success movie-card-button mt-3">Add to Backlog</button>
+      <h3 class="card-title">@Model.TvDetails.Name</h3>
+      @if(Model.ApiIds.Contains(Model.TvDetails.Id))
+      {
+        <button class="btn btn-secondary movie-card-button" type="submit" disabled>In Backlog</button>
+      }
+      else
+      {
+        @using (Html.BeginForm("Create", "Items", new {id = Model.TvDetails.Id}, FormMethod.Post))
+          {
+            <input type="hidden" id="type" name="type" value="tv">
+            <button class="btn btn-success movie-card-button mt-3">Add to Backlog</button>
+          }
+      }
     </div>
     <div class="movie-details-content ml-3 p-2">
-      @if(Model.FirstAirDate != null){
+      @if(Model.TvDetails.FirstAirDate != null){
         <h5 class="card-title">First Air Date</h5>
         <p>@FirstAirDate</p>
       }
-      @if(Model.LastAirDate != null){
+      @if(Model.TvDetails.LastAirDate != null){
         <hr />
         <h5 class="card-title">Last Air Date</h5>
         <p>@LastAirDate</p>
       }
-      @if(Model.CreatedBy != null){
+      @if(Model.TvDetails.CreatedBy != null){
         <hr />
         <h5 class="card-title">Created By</h5>
         <p>@CreatedString</p>
       }
-      @if(Model.Networks != null){
+      @if(Model.TvDetails.Networks != null){
         <hr />
         <h5 class="card-title">Network</h5>
         <p>@NetworkString</p>
       }
-      @if(Model.Seasons != null){
+      @if(Model.TvDetails.Seasons != null){
         <hr />
         <h5 class="card-title">Seasons</h5>
-        <p>@Model.NumberOfSeasons</p>
+        <p>@Model.TvDetails.NumberOfSeasons</p>
       }
-      @if(Model.Seasons != null){
+      @if(Model.TvDetails.NumberOfEpisodes != null){
         <hr />
         <h5 class="card-title">Episodes</h5>
-        <p>@Model.NumberOfEpisodes</p>
+        <p>@Model.TvDetails.NumberOfEpisodes</p>
       }
-      @if(Model.Overview != null){
+      @if(Model.TvDetails.Overview != null){
         <hr />
         <h5 class="card-title">Overview</h5>
-        <p>@Model.Overview</p>
+        <p>@Model.TvDetails.Overview</p>
       }
       @if(!String.IsNullOrEmpty(ProductionCoString)){
         <hr />

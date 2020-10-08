@@ -36,7 +36,18 @@
         <img class="no-tv-poster-details mb-3" src="/img/gamepad-alt-duotone.svg">
       }
       <h3 class="card-title">@Model.GameDetails.Name</h3>
-      <button class="btn btn-success movie-card-button mt-3">Add to Backlog</button>
+      @if(Model.ApiIds.Contains(Model.GameDetails.Id))
+      {
+        <button class="btn btn-secondary movie-card-button" type="submit" disabled>In Backlog</button>
+      }
+      else
+      {
+        @using (Html.BeginForm("Create", "Items", new {id = Model.GameDetails.Id}, FormMethod.Post))
+          {
+            <input type="hidden" id="type" name="type" value="game">
+            <button class="btn btn-success movie-card-button mt-3">Add to Backlog</button>
+          }
+      }
     </div>
     <div class="movie-details-content ml-3 p-2">
       @if(Model.GameDetails.Released != null){

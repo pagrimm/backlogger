@@ -63,7 +63,15 @@ namespace Backlogger.Controllers
       {
         return RedirectToAction("Index", "Home");
       }
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      List<ItemUser> joinList = _db.ItemUser.Where(join => join.UserId == userId).Include(join => join.Item).ToList();
+      List<long> userApiIds = new List<long>();
+      foreach(ItemUser join in joinList)
+      {
+        userApiIds.Add(join.Item.ApiId);
+      }
       ItemIndexViewModel model = new ItemIndexViewModel();
+      model.ApiIds = userApiIds;
       model.CurrentPage = page;
       model.SearchOption = searchOption;
       model.SearchString = searchString;
@@ -93,7 +101,15 @@ namespace Backlogger.Controllers
 
     public IActionResult Details(long id, string type, string screenshot = null)
     {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      List<ItemUser> joinList = _db.ItemUser.Where(join => join.UserId == userId).Include(join => join.Item).ToList();
+      List<long> userApiIds = new List<long>();
+      foreach(ItemUser join in joinList)
+      {
+        userApiIds.Add(join.Item.ApiId);
+      }
       ItemDetailsViewModel model = new ItemDetailsViewModel();
+      model.ApiIds = userApiIds;
       if (type == "game")
       {
         RawgIdRoot result = Rawg.GetGameById(id);

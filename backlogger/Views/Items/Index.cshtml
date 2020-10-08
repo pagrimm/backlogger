@@ -23,20 +23,23 @@
   {
     foreach(TmdbTvSearchResult result in Model.TvSearch.Results)
     {
-      @Html.Partial("TvSearchCard", result);
+      SearchListViewModel resultModel = new SearchListViewModel{TmdbTvSearchResult = result, ApiIds = Model.ApiIds};
+      @Html.Partial("TvSearchCard", resultModel);
     }
   }
   @if (Model.GamesSearch != null)
   {
     foreach(RawgSearchResult result in Model.GamesSearch.Results)
     {
-      @Html.Partial("GameSearchCard", result);
+      SearchListViewModel resultModel = new SearchListViewModel{RawgSearchResult = result, ApiIds = Model.ApiIds};
+      @Html.Partial("GameSearchCard", resultModel);
     }
   }
   @if (Model.MovieSearch != null)
   {
     foreach(TmdbMovieSearchResult result in Model.MovieSearch.Results)
     {
+      SearchListViewModel resultModel = new SearchListViewModel{TmdbMovieSearchResult = result, ApiIds = Model.ApiIds};
       @Html.Partial("MovieSearchCard", result);
     }
   }
@@ -44,28 +47,30 @@
 }
 else
 {
-  @if(Model.ShowingCompleted == false)
-  {
-    @using (Html.BeginForm("Index", "Items", FormMethod.Get))
+  <div class="ml-auto">
+    @if(Model.ShowingCompleted == false)
     {
-      <input type="hidden" id="typeFilter" name="typeFilter" value="@Model.TypeFilter">
-      <input type="hidden" id="showCompleted" name="showCompleted" value=true>
-      <button class="btn btn-warning mb-2 ml-auto">Show Completed</button>
+      @using (Html.BeginForm("Index", "Items", FormMethod.Get))
+      {
+        <input type="hidden" id="typeFilter" name="typeFilter" value="@Model.TypeFilter">
+        <input type="hidden" id="showCompleted" name="showCompleted" value=true>
+        <button class="btn btn-dark mb-2">Show Completed</button>
+      }
     }
-  }
-  else
-  {
-    @using (Html.BeginForm("Index", "Items", FormMethod.Get))
+    else
     {
-      <input type="hidden" id="typeFilter" name="typeFilter" value="@Model.TypeFilter">
-      <input type="hidden" id="showCompleted" name="showCompleted" value=false>
-      <button class="btn btn-success mb-2 ml-auto">Show Backlog</button>
+      @using (Html.BeginForm("Index", "Items", FormMethod.Get))
+      {
+        <input type="hidden" id="typeFilter" name="typeFilter" value="@Model.TypeFilter">
+        <input type="hidden" id="showCompleted" name="showCompleted" value=false>
+        <button class="btn btn-dark mb-2">Show Backlog</button>
+      }
     }
-  }
+  </div>
   
   @for (int i = 0; i < Model.ItemList.Count; i++)
   {
-    ItemListViewModel viewModel = new ItemListViewModel{CurrentItem = Model.ItemList[i]};
+    ItemListViewModel viewModel = new ItemListViewModel{CurrentItem = Model.ItemList[i], ShowingCompleted = Model.ShowingCompleted};
     if (i != 0)
     {
       viewModel.PreviousId = Model.ItemList[i - 1].ItemId;

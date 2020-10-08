@@ -17,5 +17,6 @@ namespace Backlogger.ViewModels
     public long Pages { get; set; } = 1;
     public int CurrentPage { get; set; }
     public bool ShowingCompleted { get; set; } = false;
+    public List<long> ApiIds { get; set; }
   }
 }

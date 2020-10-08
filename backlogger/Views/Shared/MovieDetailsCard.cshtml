@@ -1,23 +1,24 @@
 @using System;
 @using System.Globalization;
 @using Backlogger.ApiModels
-@model TmdbMovieRoot
+@using Backlogger.ViewModels
+@model ItemDetailsViewModel
 
 @{
   DateTime ParsedDate = new DateTime();
   string ReleaseDate = "";
-  if (!String.IsNullOrEmpty(Model.ReleaseDate))
+  if (!String.IsNullOrEmpty(Model.MovieDetails.ReleaseDate))
   {
-    ParsedDate = DateTime.Parse(Model.ReleaseDate);
+    ParsedDate = DateTime.Parse(Model.MovieDetails.ReleaseDate);
     ReleaseDate = @CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(ParsedDate.Month) + " " + @ParsedDate.Day + ", " + @ParsedDate.Year;
   }
   List<string> LanguageList = new List<string>();
-  foreach(TmdbMovieSpokenLanguage language in Model.SpokenLanguages){
+  foreach(TmdbMovieSpokenLanguage language in Model.MovieDetails.SpokenLanguages){
     LanguageList.Add(language.Name);
   }
   var LanguagesString = String.Join(", ", LanguageList);
   List<string> ProductionCoList = new List<string>();
-  foreach(TmdbMovieProductionCompany company in Model.ProductionCompanies)
+  foreach(TmdbMovieProductionCompany company in Model.MovieDetails.ProductionCompanies)
   {
     ProductionCoList.Add(company.Name);
   }
@@ -27,36 +28,47 @@
 <div class="card movie-details-card p-3">
   <div class="movie-details-container">
     <div class="movie-details-poster">
-      @if (Model.PosterPath != null)
+      @if (Model.MovieDetails.PosterPath != null)
       {
-        <img class="search-poster mb-3" src="https://image.tmdb.org/t/p/original/@Model.PosterPath">
+        <img class="search-poster mb-3" src="https://image.tmdb.org/t/p/original/@Model.MovieDetails.PosterPath">
       }
       else
       {
         <img class="no-movie-poster mb-3" src="/img/film-alt-duotone.svg">
       }
-      <h3 class="card-title">@Model.Title</h3>
-      <button class="btn btn-success movie-card-button mt-3">Add to Backlog</button>
+      <h3 class="card-title">@Model.MovieDetails.Title</h3>
+      @if(Model.ApiIds.Contains(Model.MovieDetails.Id))
+      {
+        <button class="btn btn-secondary movie-card-button" type="submit" disabled>In Backlog</button>
+      }
+      else
+      {
+        @using (Html.BeginForm("Create", "Items", new {id = Model.MovieDetails.Id}, FormMethod.Post))
+          {
+            <input type="hidden" id="type" name="type" value="movie">
+            <button class="btn btn-success movie-card-button mt-3">Add to Backlog</button>
+          }
+      }
     </div>
     <div class="movie-details-content ml-3 p-2">
-      @if(Model.ReleaseDate != null){
+      @if(Model.MovieDetails.ReleaseDate != null){
         <h5 class="card-title">Released</h5>
         <p>@ReleaseDate</p>
       }
-      @if(Model.Runtime != null){
+      @if(Model.MovieDetails.Runtime != null){
         <hr />
         <h5 class="card-title">Runtime</h5>
-        <p>@Model.Runtime mins</p>
+        <p>@Model.MovieDetails.Runtime mins</p>
       }
-      @if(Model.Tagline != null){
+      @if(Model.MovieDetails.Tagline != null){
         <hr />
         <h5 class="card-title">Tagline</h5>
-        <p>@Model.Tagline</p>
+        <p>@Model.MovieDetails.Tagline</p>
       }
-      @if(Model.Overview != null){
+      @if(Model.MovieDetails.Overview != null){
         <hr />
         <h5 class="card-title">Overview</h5>
-        <p>@Model.Overview</p>
+        <p>@Model.MovieDetails.Overview</p>
       }
       @if(!String.IsNullOrEmpty(LanguagesString)){
         <hr />
