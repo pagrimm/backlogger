@@ -107,7 +107,6 @@ namespace Backlogger.ApiModels
 
     [JsonProperty("community_rating", NullValueHandling = NullValueHandling.Ignore)]
     public long? CommunityRating { get; set; }
-    public string DescriptionRaw { get; set; }
   }
 
   public partial class RawgSearchAddedByStatus

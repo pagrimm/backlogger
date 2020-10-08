@@ -75,10 +75,6 @@ namespace Backlogger.Controllers
       if (searchOption == "games")
       {
         RawgSearchRoot results = Rawg.GetGamesSearch(searchString, page);
-        foreach(RawgSearchResult result in results.Results)
-        {
-          result.DescriptionRaw = Rawg.GetDescriptionById(result.Id);
-        }
         model.GamesSearch = results;
         model.Results = results.Count;
         model.Pages = (results.Count + 19) / 20;
@@ -131,7 +127,7 @@ namespace Backlogger.Controllers
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(long id, string type, string screenshot, string description)
+    public async Task<IActionResult> Create(long id, string type, string screenshot)
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
@@ -142,7 +138,6 @@ namespace Backlogger.Controllers
         newItem.GetRawgValues(itemDetails);
         newItem.Poster = screenshot;
         newItem.Priority = currentUser.PriorityValue;
-        newItem.Description = description;
         _db.Items.Add(newItem);
         ItemUser newItemUser = new ItemUser{Item = newItem, User = currentUser, ItemId = newItem.ItemId, UserId = userId};
         _db.ItemUser.Add(newItemUser);
