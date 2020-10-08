@@ -247,8 +247,12 @@ textarea:focus, input:focus {
   align-items: center;
 }
 
-.dashboard-card{
+.dashboard-card {
   display:flex;
+}
+
+.dashboard-card .card-body {
+  text-align: center;
 }
 
 .dashboard-image {

@@ -13,6 +13,6 @@ namespace Backlogger.ViewModels
     public int CompletedMovies { get; set; }
     public int TotalTv { get; set; }
     public int CompletedTv { get; set; }
-    List<Item> RecentItems { get; set; }
+    public List<Item> RecentItems { get; set; }
   }
 }
