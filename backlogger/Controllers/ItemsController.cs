@@ -24,7 +24,7 @@ namespace Backlogger.Controllers
       _db = db;
       _userManager = userManager;
     } 
-    public IActionResult Index(string typeFilter)
+    public IActionResult Index(string typeFilter, bool showCompleted = false)
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       List<ItemUser> joinList = _db.ItemUser.Where(join => join.UserId == userId).Include(join => join.Item).ToList();
@@ -36,8 +36,20 @@ namespace Backlogger.Controllers
       ItemIndexViewModel model = new ItemIndexViewModel();
       List<Item> orderedUserItems = userItems.OrderBy(item => item.Priority).ToList();
       model.ItemList = orderedUserItems;
-      if (typeFilter != null) {
-        List<Item> filteredItems = userItems.Where(item => item.Type == typeFilter).OrderBy(item => item.Priority).ToList();
+      if (showCompleted == false)
+      {
+        List<Item> uncompletedItems = model.ItemList.Where(item => item.Watched == false).ToList();
+        model.ItemList = uncompletedItems;
+      }
+      else
+      {
+        List<Item> completedItems = model.ItemList.Where(item => item.Watched == true).ToList();
+        model.ItemList = completedItems;
+        model.ShowingCompleted = true;
+      }
+      if (typeFilter != null)
+      {
+        List<Item> filteredItems = model.ItemList.Where(item => item.Type == typeFilter).ToList();
         model.ItemList = filteredItems;
         model.TypeFilter = typeFilter;
       }
@@ -161,6 +173,16 @@ namespace Backlogger.Controllers
         _db.Entry(secondItem).State = EntityState.Modified;
         _db.SaveChanges();
       }
+      return RedirectToAction("Index", new {typeFilter = typeFilter});
+    }
+
+    [HttpPost]
+    public IActionResult SetWatched(int id, string typeFilter)
+    {
+      Item itemToSet = _db.Items.FirstOrDefault(item => item.ItemId == id);
+      itemToSet.Watched = !itemToSet.Watched;
+      _db.Entry(itemToSet).State = EntityState.Modified;
+      _db.SaveChanges();
       return RedirectToAction("Index", new {typeFilter = typeFilter});
     }
 

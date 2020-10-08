@@ -44,6 +44,25 @@
 }
 else
 {
+  @if(Model.ShowingCompleted == false)
+  {
+    @using (Html.BeginForm("Index", "Items", FormMethod.Get))
+    {
+      <input type="hidden" id="typeFilter" name="typeFilter" value="@Model.TypeFilter">
+      <input type="hidden" id="showCompleted" name="showCompleted" value=true>
+      <button class="btn btn-warning mb-2 ml-auto">Show Completed</button>
+    }
+  }
+  else
+  {
+    @using (Html.BeginForm("Index", "Items", FormMethod.Get))
+    {
+      <input type="hidden" id="typeFilter" name="typeFilter" value="@Model.TypeFilter">
+      <input type="hidden" id="showCompleted" name="showCompleted" value=false>
+      <button class="btn btn-success mb-2 ml-auto">Show Backlog</button>
+    }
+  }
+  
   @for (int i = 0; i < Model.ItemList.Count; i++)
   {
     ItemListViewModel viewModel = new ItemListViewModel{CurrentItem = Model.ItemList[i]};

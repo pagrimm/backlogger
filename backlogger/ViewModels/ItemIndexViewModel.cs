@@ -16,5 +16,6 @@ namespace Backlogger.ViewModels
     public long Results { get; set; }
     public long Pages { get; set; } = 1;
     public int CurrentPage { get; set; }
+    public bool ShowingCompleted { get; set; } = false;
   }
 }

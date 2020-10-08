@@ -58,7 +58,12 @@
           <input type="hidden" id="typeFilter" name="typeFilter" value="@Model.CurrentItem.Type">
           <button class="btn btn-primary mb-2 movie-card-button" type="submit"><i class="fas fa-arrow-up"></i></button>
         }
-        <button class="btn btn-success mb-2 movie-card-button"><i class="fas fa-check"></i></button>
+        @using (Html.BeginForm("SetWatched", "Items"))
+        {
+          <input type="hidden" id="typeFilter" name="typeFilter" value="@Model.CurrentItem.Type">
+          <input type="hidden" id="id" name="id" value="@Model.CurrentItem.ItemId">
+          <button class="btn btn-success mb-2 movie-card-button"><i class="fas fa-check"></i></button>
+        }
         @using (Html.BeginForm("Details", "Items", new {id = Model.CurrentItem.ApiId}, FormMethod.Get))
         {
           <input type="hidden" id="type" name="type" value="@Model.CurrentItem.Type">
