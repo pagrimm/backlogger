@@ -1,8 +1,7 @@
 @using System
 @using System.Globalization
-@using Backlogger.ApiModels
-@using Backlogger.Models
-@model Item
+@using Backlogger.ViewModels
+@model ItemListViewModel
 
 @{
   string BackgroundStyle = "";
@@ -10,12 +9,12 @@
   DateTime ParsedDate = new DateTime();
   string ReleaseDate = "";
   string LeftColumnClass = "";
-  if (!String.IsNullOrEmpty(Model.Released))
+  if (!String.IsNullOrEmpty(Model.CurrentItem.Released))
   {
-    ParsedDate = DateTime.Parse(Model.Released);
+    ParsedDate = DateTime.Parse(Model.CurrentItem.Released);
     ReleaseDate = @CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(ParsedDate.Month) + " " + @ParsedDate.Day + ", " + @ParsedDate.Year;
   }
-  if (Model.Type == "game")
+  if (Model.CurrentItem.Type == "game")
   {
     LeftColumnClass = "game-item-column-left";
   }
@@ -25,9 +24,9 @@
   }
 }
 
-@if (Model.BackgroundImage != null)
+@if (Model.CurrentItem.BackgroundImage != null)
 {
-  BackgroundStyle = "background:url(" + @Model.BackgroundImage + "),#303030;background-size:100% auto; background-position:center";
+  BackgroundStyle = "background:url(" + @Model.CurrentItem.BackgroundImage + "),#303030;background-size:100% auto; background-position:center";
   TransParentBg = "trans-black-bg";
 }
 
@@ -35,9 +34,9 @@
   <div class="card-body">
     <div class="movie-search-container">
       <div class="@LeftColumnClass mr-3">
-        @if (Model.Poster != null)
+        @if (Model.CurrentItem.Poster != null)
         {
-          <img class="search-poster" src="@Model.Poster">
+          <img class="search-poster" src="@Model.CurrentItem.Poster">
         }
         else
         {
@@ -45,23 +44,35 @@
         }
       </div>
       <div class="movie-search-column-center p-2 @TransParentBg">
-        <h5 class="card-title">@Model.Name</h5>
+        <h5 class="card-title">@Model.CurrentItem.Name</h5>
         <h6 class='card-subtitle mb-2 text-muted'>Released: @ReleaseDate </h6>
-        @if (Model.Type != "game"){
-          <p class="card-text">@Model.Description</p>
+        @if (Model.CurrentItem.Type != "game"){
+          <p class="card-text">@Model.CurrentItem.Description</p>
         }
       </div>
       <div class="item-card-column-right ml-3">
-        <button class="btn btn-primary mb-2 movie-card-button" type="submit"><i class="fas fa-arrow-up"></i></button>
-        <button class="btn btn-success mb-2 movie-card-button"><i class="fas fa-check"></i></button>
-        @using (Html.BeginForm("Details", "Items", new {id = Model.ApiId}, FormMethod.Get))
+        @using (Html.BeginForm("SetPriority", "Items"))
         {
-          <input type="hidden" id="type" name="type" value="@Model.Type">
-          <input type="hidden" id="screenshot" name="screenshot" value="@Model.Poster">
+          <input type="hidden" id="id1" name="id1" value="@Model.PreviousId">
+          <input type="hidden" id="id2" name="id2" value="@Model.CurrentItem.ItemId">
+          <input type="hidden" id="typeFilter" name="typeFilter" value="@Model.CurrentItem.Type">
+          <button class="btn btn-primary mb-2 movie-card-button" type="submit"><i class="fas fa-arrow-up"></i></button>
+        }
+        <button class="btn btn-success mb-2 movie-card-button"><i class="fas fa-check"></i></button>
+        @using (Html.BeginForm("Details", "Items", new {id = Model.CurrentItem.ApiId}, FormMethod.Get))
+        {
+          <input type="hidden" id="type" name="type" value="@Model.CurrentItem.Type">
+          <input type="hidden" id="screenshot" name="screenshot" value="@Model.CurrentItem.Poster">
           <button class="btn btn-warning mb-2 movie-card-button" type="submit"><i class="fal fa-info-circle"></i></button>
         }
         <button class="btn btn-danger mb-2 movie-card-button"><i class="fas fa-trash"></i></button>
-        <button class="btn btn-primary movie-card-button" type="submit"><i class="fas fa-arrow-down"></i></button>
+        @using (Html.BeginForm("SetPriority", "Items"))
+        {
+          <input type="hidden" id="id1" name="id1" value="@Model.NextId">
+          <input type="hidden" id="id2" name="id2" value="@Model.CurrentItem.ItemId">
+          <input type="hidden" id="typeFilter" name="typeFilter" value="@Model.CurrentItem.Type">
+          <button class="btn btn-primary mb-2 movie-card-button" type="submit"><i class="fas fa-arrow-down"></i></button>
+        }
       </div>
     </div>
   </div>

@@ -34,10 +34,12 @@ namespace Backlogger.Controllers
         userItems.Add(join.Item);
       }
       ItemIndexViewModel model = new ItemIndexViewModel();
-      model.ItemList = userItems;
+      List<Item> orderedUserItems = userItems.OrderBy(item => item.Priority).ToList();
+      model.ItemList = orderedUserItems;
       if (typeFilter != null) {
-        List<Item> filteredItems = userItems.Where(item => item.Type == typeFilter).ToList();
+        List<Item> filteredItems = userItems.Where(item => item.Type == typeFilter).OrderBy(item => item.Priority).ToList();
         model.ItemList = filteredItems;
+        model.TypeFilter = typeFilter;
       }
       return View(model);
     }
@@ -143,6 +145,23 @@ namespace Backlogger.Controllers
         _db.SaveChanges();
       }
       return RedirectToAction("Index", "Items");
+    }
+
+    [HttpPost]
+    public IActionResult SetPriority(long id1, long id2, string typeFilter)
+    {
+      if (id1 != -1 && id2 != -1)
+      {
+        Item firstItem = _db.Items.FirstOrDefault(item => item.ItemId == id1);
+        Item secondItem = _db.Items.FirstOrDefault(item => item.ItemId == id2);
+        int temp = firstItem.Priority;
+        firstItem.Priority = secondItem.Priority;
+        secondItem.Priority = temp;
+        _db.Entry(firstItem).State = EntityState.Modified;
+        _db.Entry(secondItem).State = EntityState.Modified;
+        _db.SaveChanges();
+      }
+      return RedirectToAction("Index", new {typeFilter = typeFilter});
     }
   }
 }

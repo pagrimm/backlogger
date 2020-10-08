@@ -44,8 +44,17 @@
 }
 else
 {
-  @foreach(Item item in Model.ItemList)
+  @for (int i = 0; i < Model.ItemList.Count; i++)
   {
-    @Html.Partial("ItemCard", item)
+    ItemListViewModel viewModel = new ItemListViewModel{CurrentItem = Model.ItemList[i]};
+    if (i != 0)
+    {
+      viewModel.PreviousId = Model.ItemList[i - 1].ItemId;
+    }
+    if (i != Model.ItemList.Count -1)
+    {
+      viewModel.NextId = Model.ItemList[i + 1].ItemId;
+    }
+    @Html.Partial("ItemCard", viewModel)
   }
 }

@@ -10,6 +10,7 @@ namespace Backlogger.ViewModels
     public RawgSearchRoot GamesSearch { get; set; } = null;
     public TmdbMovieSearchRoot MovieSearch { get; set; } = null;
     public TmdbTvSearchRoot TvSearch { get; set; } = null;
+    public string TypeFilter { get; set; }
     public string SearchOption { get; set; }
     public string SearchString { get; set; }
     public long Results { get; set; }
