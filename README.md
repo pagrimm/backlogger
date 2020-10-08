@@ -11,23 +11,37 @@ My capstone project for Epicodus. Backlogger is an application which allows user
 ## Specifications
 MVP:  
 * Users have a media backlog.
-* Users can add movies, TV shows, books, and video games to their backlog.
-* Users can filter backlog by media type (movie, TV, books, video games).
+* Users can add movies, TV shows, and video games to their backlog.
+* Users can filter backlog by media type (movie, TV, video games).
 * Users can set the priority of their backlog items.
 * Users can mark media items complete when they have finished them.
-* Users can create custom groupings to organize their backlog.
+* Users can search a movie database to add movies
+* Users can search a TV database to add TV shows
+* Users can search a video game database to add video games
 
 Stretch:
+* Users can add books to their backlog
+* Users can a books database to add books
 * Users can rate media and collective user rating is displayed for rated media.
 * Users can review media and user reviews are displayed for reviewed media.    
 * Users can browse curated lists of media (IMdB Top 500, AFI's 100 Years 100 Movies, Roger Ebert's Great Movies List, etc.)
 * Users can filter by other metadata than media type (genre, year, director, etc.)
-* Users can search a movie database to add movies
-* Users can search books database to add books
-* Users can search a TV database to add TV shows
-* Users can search a video game database to add TV shows
 * Users are presented links to streaming sites or online marketplaces that feature media they have added
 * Users are presented IMdB, Rotten Tomatoes or Metacritic scores for media they have added.
+
+## Setup/Installation Requirements
+* .NET Core 2.2 will need to be installed, it can be found here https://dotnet.microsoft.com/download/dotnet-core/2.2
+* For Mac users, download MySQL here: https://dev.mysql.com/downloads/file/?id=484914
+* For Windows users, download MySQL here: https://dev.mysql.com/downloads/file/?id=484919
+* Install MySQL and set the system path, more information on how to do that can be found here: https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-and-configuring-mysql
+* Clone the GitHub repository by running `git clone https://github.com/pagrimm/backlogger.git` in the terminal
+* Navigate to the newly created `backlogger.solution` folder
+* Navigate to the `backlogger` subfolder
+* Run `dotnet restore` to get application dependencies
+* Run `dotnet build` to build the application
+* Run `dotnet ef database update` to create the application database
+* Run `dotnet run` to run the application
+* The web app will now be available on `http://localhost:5000/` in your browser
 
 ## Technologies Used
 C#  
