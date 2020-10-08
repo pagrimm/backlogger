@@ -35,6 +35,10 @@ namespace Backlogger.Controllers
       }
       ItemIndexViewModel model = new ItemIndexViewModel();
       model.ItemList = userItems;
+      if (typeFilter != null) {
+        List<Item> filteredItems = userItems.Where(item => item.Type == typeFilter).ToList();
+        model.ItemList = filteredItems;
+      }
       return View(model);
     }
 

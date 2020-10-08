@@ -1,0 +1,68 @@
+@using System
+@using System.Globalization
+@using Backlogger.ApiModels
+@using Backlogger.Models
+@model Item
+
+@{
+  string BackgroundStyle = "";
+  string TransParentBg = "";
+  DateTime ParsedDate = new DateTime();
+  string ReleaseDate = "";
+  string LeftColumnClass = "";
+  if (!String.IsNullOrEmpty(Model.Released))
+  {
+    ParsedDate = DateTime.Parse(Model.Released);
+    ReleaseDate = @CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(ParsedDate.Month) + " " + @ParsedDate.Day + ", " + @ParsedDate.Year;
+  }
+  if (Model.Type == "game")
+  {
+    LeftColumnClass = "game-item-column-left";
+  }
+  else
+  {
+    LeftColumnClass = "movie-item-column-left";
+  }
+}
+
+@if (Model.BackgroundImage != null)
+{
+  BackgroundStyle = "background:url(" + @Model.BackgroundImage + "),#303030;background-size:100% auto; background-position:center";
+  TransParentBg = "trans-black-bg";
+}
+
+<div class="card mb-3 movie-search-card" style="@BackgroundStyle">
+  <div class="card-body">
+    <div class="movie-search-container">
+      <div class="@LeftColumnClass mr-3">
+        @if (Model.Poster != null)
+        {
+          <img class="search-poster" src="@Model.Poster">
+        }
+        else
+        {
+          <img class="no-movie-poster" src="/img/film-alt-duotone.svg">
+        }
+      </div>
+      <div class="movie-search-column-center p-2 @TransParentBg">
+        <h5 class="card-title">@Model.Name</h5>
+        <h6 class='card-subtitle mb-2 text-muted'>Released: @ReleaseDate </h6>
+        @if (Model.Type != "game"){
+          <p class="card-text">@Model.Description</p>
+        }
+      </div>
+      <div class="item-card-column-right ml-3">
+        <button class="btn btn-primary mb-2 movie-card-button" type="submit"><i class="fas fa-arrow-up"></i></button>
+        <button class="btn btn-success mb-2 movie-card-button"><i class="fas fa-check"></i></button>
+        @using (Html.BeginForm("Details", "Items", new {id = Model.ApiId}, FormMethod.Get))
+        {
+          <input type="hidden" id="type" name="type" value="@Model.Type">
+          <input type="hidden" id="screenshot" name="screenshot" value="@Model.Poster">
+          <button class="btn btn-warning mb-2 movie-card-button" type="submit"><i class="fal fa-info-circle"></i></button>
+        }
+        <button class="btn btn-danger mb-2 movie-card-button"><i class="fas fa-trash"></i></button>
+        <button class="btn btn-primary movie-card-button" type="submit"><i class="fas fa-arrow-down"></i></button>
+      </div>
+    </div>
+  </div>
+</div>

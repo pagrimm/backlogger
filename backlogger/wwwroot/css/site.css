@@ -103,14 +103,24 @@ body {
   flex: 0 0 125px;
 }
 
+.movie-item-column-left {
+  width: 140px;
+  flex: 0 0 140px;
+}
+
 .game-search-column-left {
   width: 200px;
   flex: 0 0 200px;
 }
 
+.game-item-column-left {
+  width: 375px;
+  flex: 0 0 375px;
+}
+
 .movie-search-column-right {
-  width: 125px;
-  flex: 0 0 125px;
+  width: 45px;
+  flex: 0 0 45px;
 }
 
 .movie-search-column-center {
@@ -162,4 +172,12 @@ body {
   max-width: 100%;
   filter: invert(26%) sepia(0%) saturate(0%) hue-rotate(26deg) brightness(97%) contrast(99%);
   transform: scale(1, 1.25);
+}
+
+.item-card-column-right {
+  width: 45px;
+  flex: 0 0 45px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }

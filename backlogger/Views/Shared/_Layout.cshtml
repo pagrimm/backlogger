@@ -23,46 +23,54 @@
     @if (User.Identity.IsAuthenticated)
     {
     <div class="sidebar">
-      <div class="sidebar-item">
-        <div class="row">
-          <div class="col-3">
-            <i class="fad fa-book"></i>
-          </div>
-          <div class="col-9">
-            Books
+      <a href="/items?typeFilter=book">
+        <div class="sidebar-item">
+            <div class="row">
+              <div class="col-3">
+                <i class="fad fa-book"></i>
+              </div>
+              <div class="col-9">
+                Books
+              </div>
+            </div>
+        </div>
+      </a>
+      <a href="/items?typeFilter=game">
+        <div class="sidebar-item">
+          <div class="row">
+            <div class="col-3">
+              <i class="fad fa-gamepad-alt mr-3"></i>
+            </div>
+            <div class="col-9">
+              Games
+            </div>
           </div>
         </div>
-      </div>
-      <div class="sidebar-item">
-        <div class="row">
-          <div class="col-3">
-            <i class="fad fa-gamepad-alt mr-3"></i>
-          </div>
-          <div class="col-9">
-            Games
-          </div>
-        </div>
-      </div>
-      <div class="sidebar-item">
-        <div class="row">
-          <div class="col-3">
-            <i class="fad fa-film mr-3"></i>
-          </div>
-          <div class="col-9">
-            Movies
+      </a>
+      <a href="/items?typeFilter=movie">
+        <div class="sidebar-item">
+          <div class="row">
+            <div class="col-3">
+              <i class="fad fa-film mr-3"></i>
+            </div>
+            <div class="col-9">
+              Movies
+            </div>
           </div>
         </div>
-      </div>
-      <div class="sidebar-item">
-        <div class="row">
-          <div class="col-3">
-            <i class="fad fa-tv-retro mr-3"></i>
-          </div>
-          <div class="col-9">
-            TV Shows
+      </a>
+      <a href="/items?typeFilter=tv">
+        <div class="sidebar-item">
+          <div class="row">
+            <div class="col-3">
+              <i class="fad fa-tv-retro mr-3"></i>
+            </div>
+            <div class="col-9">
+              TV Shows
+            </div>
           </div>
         </div>
-      </div>
+      </a>
     </div>
     }
     <div class="main-window">

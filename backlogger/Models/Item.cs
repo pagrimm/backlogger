@@ -13,21 +13,21 @@ namespace Backlogger.Models
     }
     public int ItemId { get; set; }
     public string Type { get; set; }
-    public long RawgId { get; set; }
-    public long TmdbId { get; set; }
+    public long ApiId { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public string Released { get; set; }
     public string BackgroundImage { get; set; }
     public string Poster { get; set; }
     public int Priority { get; set; }
-    public DateTime AddedDate { get; set; }
+    public DateTime AddedDate { get; set; } = DateTime.Now;
+    public bool Watched { get; set; } = false;
     public ICollection<ItemUser> Users { get; set; }
 
     public void GetRawgValues(RawgIdRoot input)
     {
-      this.Type = "Game";
-      this.RawgId = input.Id;
+      this.Type = "game";
+      this.ApiId = input.Id;
       this.Name = input.Name;
       this.Description = input.Description;
       this.Released = input.Released;
@@ -36,9 +36,9 @@ namespace Backlogger.Models
 
     public void GetTmdbMovieValues(TmdbMovieRoot input)
     {
-      this.Type = "Movie";
+      this.Type = "movie";
       this.Name = input.Title;
-      this.TmdbId = input.Id;
+      this.ApiId = input.Id;
       this.Description = input.Overview;
       this.Released = input.ReleaseDate;
       if (!String.IsNullOrEmpty(input.BackdropPath))
@@ -53,9 +53,9 @@ namespace Backlogger.Models
 
     public void GetTmdbTvValues(TmdbTvRoot input)
     {
-      this.Type = "TV";
+      this.Type = "tv";
       this.Name = input.Name;
-      this.TmdbId = input.Id;
+      this.ApiId = input.Id;
       if (!String.IsNullOrEmpty(input.Overview))
       {
         this.Description = input.Overview;

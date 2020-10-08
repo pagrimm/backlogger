@@ -46,6 +46,6 @@ else
 {
   @foreach(Item item in Model.ItemList)
   {
-    <p>@item.Name</p>
+    @Html.Partial("ItemCard", item)
   }
 }
