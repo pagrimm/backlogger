@@ -75,6 +75,10 @@ namespace Backlogger.Controllers
       if (searchOption == "games")
       {
         RawgSearchRoot results = Rawg.GetGamesSearch(searchString, page);
+        foreach(RawgSearchResult result in results.Results)
+        {
+          result.DescriptionRaw = Rawg.GetDescriptionById(result.Id);
+        }
         model.GamesSearch = results;
         model.Results = results.Count;
         model.Pages = (results.Count + 19) / 20;

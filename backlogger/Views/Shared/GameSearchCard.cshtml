@@ -9,7 +9,7 @@
   string TransParentBg = "";
   DateTime ParsedDate = new DateTime();
   string ReleaseDate = "";
-  string Description = Rawg.GetDescriptionById(Model.RawgSearchResult.Id);
+  string Description = Model.RawgSearchResult.DescriptionRaw;
   if (Description.Length > 500)
   {
     Description = Description.Substring(0, 500) + "(CONT.)";
