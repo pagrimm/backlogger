@@ -144,7 +144,7 @@ namespace Backlogger.Controllers
         var result = await _userManager.UpdateAsync(currentUser);
         _db.SaveChanges();
       }
-      return RedirectToAction("Index", "Items");
+      return RedirectToAction("Index", new {typeFilter = type});
     }
 
     [HttpPost]
@@ -161,6 +161,18 @@ namespace Backlogger.Controllers
         _db.Entry(secondItem).State = EntityState.Modified;
         _db.SaveChanges();
       }
+      return RedirectToAction("Index", new {typeFilter = typeFilter});
+    }
+
+    [HttpPost]
+    public IActionResult Delete(int id, string typeFilter)
+    {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      Item itemToDelete = _db.Items.FirstOrDefault(item => item.ItemId == id);
+      ItemUser joinToDelete = _db.ItemUser.FirstOrDefault(join => join.UserId == userId && join.ItemId == id);
+      _db.Items.Remove(itemToDelete);
+      _db.ItemUser.Remove(joinToDelete);
+      _db.SaveChanges();
       return RedirectToAction("Index", new {typeFilter = typeFilter});
     }
   }

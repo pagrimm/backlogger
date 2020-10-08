@@ -65,7 +65,12 @@
           <input type="hidden" id="screenshot" name="screenshot" value="@Model.CurrentItem.Poster">
           <button class="btn btn-warning mb-2 movie-card-button" type="submit"><i class="fal fa-info-circle"></i></button>
         }
-        <button class="btn btn-danger mb-2 movie-card-button"><i class="fas fa-trash"></i></button>
+        @using (Html.BeginForm("Delete", "Items"))
+        {
+          <input type="hidden" id="typeFilter" name="typeFilter" value="@Model.CurrentItem.Type">
+          <input type="hidden" id="id" name="id" value="@Model.CurrentItem.ItemId">
+          <button class="btn btn-danger mb-2 movie-card-button"><i class="fas fa-trash"></i></button>
+        }
         @using (Html.BeginForm("SetPriority", "Items"))
         {
           <input type="hidden" id="id1" name="id1" value="@Model.NextId">
