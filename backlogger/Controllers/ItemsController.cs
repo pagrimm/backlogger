@@ -96,7 +96,7 @@ namespace Backlogger.Controllers
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(long id, string type, string screenShot)
+    public async Task<IActionResult> Create(long id, string type, string screenshot)
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
@@ -105,7 +105,7 @@ namespace Backlogger.Controllers
       {
         RawgIdRoot itemDetails = Rawg.GetGameById(id);
         newItem.GetRawgValues(itemDetails);
-        newItem.Poster = screenShot;
+        newItem.Poster = screenshot;
         newItem.Priority = currentUser.PriorityValue;
         _db.Items.Add(newItem);
         ItemUser newItemUser = new ItemUser{Item = newItem, User = currentUser, ItemId = newItem.ItemId, UserId = userId};

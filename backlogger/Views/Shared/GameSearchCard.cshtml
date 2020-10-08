@@ -46,7 +46,15 @@
           }
           <button class="btn btn-warning mb-3 movie-card-button" type="submit">Game Details</button>
         }
-        <button class="btn btn-success movie-card-button">Add to Backlog</button>
+        @using (Html.BeginForm("Create", "Items", new {id = Model.Id}, FormMethod.Post))
+        {
+          @if(Model.ShortScreenshots.Count > 1)
+          {
+            <input type="hidden" id="screenshot" name="screenshot" value="@Model.ShortScreenshots[1].Image">
+          }
+          <input type="hidden" id="type" name="type" value="game">
+          <button class="btn btn-success movie-card-button" type="submit">Add to Backlog</button>
+        }
       </div>
     </div>
   </div>

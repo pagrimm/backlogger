@@ -43,11 +43,11 @@ namespace Backlogger.Models
       this.Released = input.ReleaseDate;
       if (!String.IsNullOrEmpty(input.BackdropPath))
       {
-        this.BackgroundImage = "https://image.tmdb.org/t/p/original/" + input.BackdropPath;
+        this.BackgroundImage = "https://image.tmdb.org/t/p/original" + input.BackdropPath;
       }
       if (!String.IsNullOrEmpty(input.PosterPath))
       {
-        this.Poster = "https://image.tmdb.org/t/p/original/" + input.PosterPath;
+        this.Poster = "https://image.tmdb.org/t/p/original" + input.PosterPath;
       }
     }
 
@@ -66,11 +66,11 @@ namespace Backlogger.Models
       }
       if (!String.IsNullOrEmpty(input.BackdropPath))
       {
-        this.BackgroundImage = "https://image.tmdb.org/t/p/original/" + input.BackdropPath;
+        this.BackgroundImage = "https://image.tmdb.org/t/p/original" + input.BackdropPath;
       }
       if (!String.IsNullOrEmpty(input.PosterPath))
       {
-        this.Poster = "https://image.tmdb.org/t/p/original/" + input.PosterPath;
+        this.Poster = "https://image.tmdb.org/t/p/original" + input.PosterPath;
       }
     }
   }
