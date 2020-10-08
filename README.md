@@ -49,7 +49,7 @@ namespace Backlogger.Models
 }
 ```
 * Acquire an API Key from https://developers.themoviedb.org/3/getting-started/introduction and put it in the `EnvironmentVariable.cs` file you created
-* Navigate to the `backlogger.solution\backlogger\` folder
+* Navigate up one level, back to the `backlogger.solution/backlogger/` folder
 * Run `dotnet restore` to get application dependencies
 * Run `dotnet build` to build the application
 * Run `dotnet ef database update` to create the application database
