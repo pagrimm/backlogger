@@ -1,43 +1,51 @@
+@using Backlogger.Models
 @using Backlogger.ViewModels
 @using Backlogger.ApiModels
-@model ItemIndexPostViewModel
+@model ItemIndexViewModel
 
 @{
   Layout = "_Layout";
 }
-@{
+@if(Model.SearchOption != null)
+{
   string TruncatedResults = "";
   long TruncatedNumber = Model.Results - 400;
+  @if (Model.Results > 400)
+  {
+    TruncatedResults = " (" + @TruncatedNumber + " Results Truncated)";
   }
-@if (Model.Results > 400)
-{
-  TruncatedResults = " (" + @TruncatedNumber + " Results Truncated)";
-}
-<div class="pagination-container mb-1">
-  <div>Total Search Results: @Model.Results @TruncatedResults</div>
-</div>
-@Html.Partial("PaginationCounter", Model)
+  <div class="pagination-container mb-1">
+    <div>Total Search Results: @Model.Results @TruncatedResults</div>
+  </div>
+  @Html.Partial("PaginationCounter", Model)
 
-@if(Model.TvSearch != null)
-{
-  foreach(TmdbTvSearchResult result in Model.TvSearch.Results)
+  @if(Model.TvSearch != null)
   {
-    @Html.Partial("TvSearchCard", result);
+    foreach(TmdbTvSearchResult result in Model.TvSearch.Results)
+    {
+      @Html.Partial("TvSearchCard", result);
+    }
+  }
+  @if (Model.GamesSearch != null)
+  {
+    foreach(RawgSearchResult result in Model.GamesSearch.Results)
+    {
+      @Html.Partial("GameSearchCard", result);
+    }
+  }
+  @if (Model.MovieSearch != null)
+  {
+    foreach(TmdbMovieSearchResult result in Model.MovieSearch.Results)
+    {
+      @Html.Partial("MovieSearchCard", result);
+    }
+  }
+  @Html.Partial("PaginationCounter", Model)
+}
+else
+{
+  @foreach(Item item in Model.ItemList)
+  {
+    <p>@item.Name</p>
   }
 }
-@if (Model.GamesSearch != null)
-{
-  foreach(RawgSearchResult result in Model.GamesSearch.Results)
-  {
-    @Html.Partial("GameSearchCard", result);
-  }
-}
-@if (Model.MovieSearch != null)
-{
-  foreach(TmdbMovieSearchResult result in Model.MovieSearch.Results)
-  {
-    @Html.Partial("MovieSearchCard", result);
-  }
-}
-
-@Html.Partial("PaginationCounter", Model)

@@ -1,9 +1,12 @@
+using System.Collections.Generic;
+using Backlogger.Models;
 using Backlogger.ApiModels;
 
 namespace Backlogger.ViewModels
 {
-  public class ItemIndexPostViewModel
+  public class ItemIndexViewModel
   {
+    public List<Item> ItemList { get; set; }
     public RawgSearchRoot GamesSearch { get; set; } = null;
     public TmdbMovieSearchRoot MovieSearch { get; set; } = null;
     public TmdbTvSearchRoot TvSearch { get; set; } = null;

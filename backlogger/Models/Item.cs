@@ -15,6 +15,11 @@ namespace Backlogger.Models
     public string Type { get; set; }
     public long RawgId { get; set; }
     public long TmdbId { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public string Released { get; set; }
+    public string BackgroundImage { get; set; }
+    public string Poster { get; set; }
     public int Priority { get; set; }
     public DateTime AddedDate { get; set; }
     public ICollection<ItemUser> Users { get; set; }
@@ -23,18 +28,50 @@ namespace Backlogger.Models
     {
       this.Type = "Game";
       this.RawgId = input.Id;
+      this.Name = input.Name;
+      this.Description = input.Description;
+      this.Released = input.Released;
+      this.BackgroundImage = input.BackgroundImage;
     }
 
     public void GetTmdbMovieValues(TmdbMovieRoot input)
     {
       this.Type = "Movie";
+      this.Name = input.Title;
       this.TmdbId = input.Id;
+      this.Description = input.Overview;
+      this.Released = input.ReleaseDate;
+      if (!String.IsNullOrEmpty(input.BackdropPath))
+      {
+        this.BackgroundImage = "https://image.tmdb.org/t/p/original/" + input.BackdropPath;
+      }
+      if (!String.IsNullOrEmpty(input.PosterPath))
+      {
+        this.Poster = "https://image.tmdb.org/t/p/original/" + input.PosterPath;
+      }
     }
 
     public void GetTmdbTvValues(TmdbTvRoot input)
     {
       this.Type = "TV";
+      this.Name = input.Name;
       this.TmdbId = input.Id;
+      if (!String.IsNullOrEmpty(input.Overview))
+      {
+        this.Description = input.Overview;
+      }
+      if (!String.IsNullOrEmpty(input.FirstAirDate))
+      {
+        this.Released = input.FirstAirDate;
+      }
+      if (!String.IsNullOrEmpty(input.BackdropPath))
+      {
+        this.BackgroundImage = "https://image.tmdb.org/t/p/original/" + input.BackdropPath;
+      }
+      if (!String.IsNullOrEmpty(input.PosterPath))
+      {
+        this.Poster = "https://image.tmdb.org/t/p/original/" + input.PosterPath;
+      }
     }
   }
 }

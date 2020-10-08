@@ -3,14 +3,16 @@ using System;
 using Backlogger.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace backlogger.Migrations
 {
     [DbContext(typeof(BackloggerContext))]
-    partial class BackloggerContextModelSnapshot : ModelSnapshot
+    [Migration("20201008030657_RemovePriorityModels")]
+    partial class RemovePriorityModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

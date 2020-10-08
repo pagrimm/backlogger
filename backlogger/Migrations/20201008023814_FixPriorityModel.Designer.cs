@@ -3,14 +3,16 @@ using System;
 using Backlogger.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace backlogger.Migrations
 {
     [DbContext(typeof(BackloggerContext))]
-    partial class BackloggerContextModelSnapshot : ModelSnapshot
+    [Migration("20201008023814_FixPriorityModel")]
+    partial class FixPriorityModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,8 +49,6 @@ namespace backlogger.Migrations
                     b.Property<string>("PhoneNumber");
 
                     b.Property<bool>("PhoneNumberConfirmed");
-
-                    b.Property<int>("PriorityValue");
 
                     b.Property<string>("SecurityStamp");
 
@@ -115,6 +115,36 @@ namespace backlogger.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("ItemUser");
+                });
+
+            modelBuilder.Entity("Backlogger.Models.Priority", b =>
+                {
+                    b.Property<int>("PriorityId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("CurrentValue");
+
+                    b.HasKey("PriorityId");
+
+                    b.ToTable("Priorities");
+                });
+
+            modelBuilder.Entity("Backlogger.Models.PriorityUser", b =>
+                {
+                    b.Property<int>("PriorityUserId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("PriorityId");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("PriorityUserId");
+
+                    b.HasIndex("PriorityId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("PriorityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -229,6 +259,18 @@ namespace backlogger.Migrations
                     b.HasOne("Backlogger.Models.Item", "Item")
                         .WithMany("Users")
                         .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Backlogger.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("Backlogger.Models.PriorityUser", b =>
+                {
+                    b.HasOne("Backlogger.Models.Priority", "Priority")
+                        .WithMany("Users")
+                        .HasForeignKey("PriorityId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Backlogger.Models.ApplicationUser", "User")

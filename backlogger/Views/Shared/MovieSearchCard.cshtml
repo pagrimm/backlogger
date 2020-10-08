@@ -45,7 +45,11 @@
           <input type="hidden" id="type" name="type" value="movie">
           <button class="btn btn-warning mb-3 movie-card-button" type="submit">Movie Details</button>
         }
-        <button class="btn btn-success movie-card-button">Add to Backlog</button>
+        @using (Html.BeginForm("Create", "Items", new {id = Model.Id}, FormMethod.Post))
+        {
+          <input type="hidden" id="type" name="type" value="movie">
+          <button class="btn btn-success movie-card-button" type="submit">Add to Backlog</button>
+        }
       </div>
     </div>
   </div>
