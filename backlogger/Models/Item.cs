@@ -29,7 +29,14 @@ namespace Backlogger.Models
       this.Type = "game";
       this.ApiId = input.Id;
       this.Name = input.Name;
-      this.Description = input.Description;
+      if (input.DescriptionRaw.Length > 500)
+      {
+        this.Description = input.DescriptionRaw.Substring(0, 500) + "...(CONT.)";
+      }
+      else
+      {
+        this.Description = input.DescriptionRaw;
+      }
       this.Released = input.Released;
       this.BackgroundImage = input.BackgroundImage;
     }
